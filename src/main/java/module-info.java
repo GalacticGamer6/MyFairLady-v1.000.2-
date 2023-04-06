@@ -12,7 +12,7 @@ module com.example.myfairlady {
     requires javafx.graphics;
 
     opens com.example.myfairlady to javafx.fxml;
-    exports com.example.myfairlady;
     exports com.example.myfairlady.SceneController;
+    exports com.example.myfairlady to javafx.graphics;
     opens com.example.myfairlady.SceneController to javafx.fxml;
 }
