@@ -3,6 +3,7 @@ package com.example.myfairlady.Managers;
 import com.example.myfairlady.DataTypes.Product;
 import com.example.myfairlady.UtilityClasses.Database;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class ProductManager {
@@ -29,6 +30,29 @@ public class ProductManager {
 
         Database.update("DELETE FROM tblproducts WHERE product_name = '" + product_name + "' AND store = '" + store_name + "' AND fair = '" + fair_name + "';");
 
+    }
+
+    public void searchProductByName(String product_name,String store_name) throws SQLException {
+
+        ResultSet s = Database.query("SELECT * FROM tblproducts WHERE product_name = '" + product_name + "' AND store = '" + store_name + "';");
+
+    }
+
+    public void searchProductByCategory(String category) throws SQLException {
+
+        ResultSet s = Database.query("SELECT * FROM tblproducts WHERE category = '" + category + "';");
+
+    }
+
+    public void searchProductByStore(String store_name, String fair_name) throws SQLException {
+
+        ResultSet s = Database.query("SELECT * FROM tblproducts WHERE store = '" + store_name + "' AND fair = '" + fair_name + "';");
+
+    }
+
+    public void searchproductByPriceASC(String store_name, String fair_name) throws SQLException {
+
+        ResultSet s = Database.query("SELECT * FROM tblproducts WHERE store = '" + store_name + "' AND fair = '" + fair_name + "' ORDER BY selling_price ASC;");
     }
 
 }
