@@ -55,4 +55,13 @@ public class ProductManager {
         ResultSet s = Database.query("SELECT * FROM tblproducts WHERE store = '" + store_name + "' AND fair = '" + fair_name + "' ORDER BY selling_price ASC;");
     }
 
+    public void searchproductByPriceDESC(String store_name, String fair_name) throws SQLException {
+
+        ResultSet s = Database.query("SELECT * FROM tblproducts WHERE store = '" + store_name + "' AND fair = '" + fair_name + "' ORDER BY selling_price DESC;");
+    }
+
+
+
+
+
 }
