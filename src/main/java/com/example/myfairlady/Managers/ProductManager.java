@@ -21,5 +21,14 @@ public class ProductManager {
 
     }
 
+    public static void deleteProduct(Product p) throws SQLException {
+        //primary key should be product name + store name + fair name
+        String product_name = p.getProductName();
+        String store_name = p.getStoreName();
+        String fair_name = p.getFairName();
+
+        Database.update("DELETE FROM tblproducts WHERE product_name = '" + product_name + "' AND store = '" + store_name + "' AND fair = '" + fair_name + "';");
+
+    }
 
 }
