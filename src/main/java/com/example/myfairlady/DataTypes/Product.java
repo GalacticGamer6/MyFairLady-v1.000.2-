@@ -10,20 +10,23 @@ public class Product {
     private int quantity;
     private int num_sold;
 
+    public Product(String name, String store, double selling_price, double cost_price, String category, int quantity, int num_sold) {
+        this.name = name;
+        this.store = store;
+        this.selling_price = selling_price;
+        this.cost_price = cost_price;
+        this.category = category;
+        this.quantity = quantity;
+        this.num_sold = num_sold;
+    }
+
+
     public String getProductName() {
         return name;
     }
 
-    public void setProductName(String name) {
-        this.name = name;
-    }
-
     public String getStoreName() {
         return store;
-    }
-
-    public void setStoreName(String store) {
-        this.store = store;
     }
 
     public double getSellingPrice() {
@@ -38,24 +41,12 @@ public class Product {
         return cost_price;
     }
 
-    public void setCostPrice(double cost_price) {
-        this.cost_price = cost_price;
-    }
-
     public String getProductCategory() {
         return category;
     }
 
-    public void setProductCategory(String category) {
-        this.category = category;
-    }
-
     public int getQuantity() {
         return quantity;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
     }
 
     public int getNumSold() {

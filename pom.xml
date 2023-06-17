@@ -9,12 +9,20 @@
     <version>1.0-SNAPSHOT</version>
     <name>MyFairLady v1.000.2</name>
 
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <junit.version>5.7.1</junit.version>
     </properties>
 
     <dependencies>
+        <!-- https://mvnrepository.com/artifact/com.mysql/mysql-connector-j -->
+        <dependency>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
+            <version>8.0.31</version>
+        </dependency>
+
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>
@@ -89,6 +97,16 @@
             <artifactId>junit-jupiter-engine</artifactId>
             <version>${junit.version}</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.metricstream.jdbc</groupId>
+            <artifactId>sqlbuilder-core</artifactId>
+            <version>3.9.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.metricstream.jdbc</groupId>
+            <artifactId>sqlbuilder-core</artifactId>
+            <version>3.9.0</version>
         </dependency>
     </dependencies>
 

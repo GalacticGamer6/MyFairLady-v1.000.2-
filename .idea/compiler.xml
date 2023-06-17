@@ -6,7 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="MyFairLady v1.000.2" />
+        <module name="MyFairLady" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
