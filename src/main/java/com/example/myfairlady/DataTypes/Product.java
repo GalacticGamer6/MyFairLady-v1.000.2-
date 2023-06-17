@@ -4,20 +4,20 @@ public class Product {
 
     private String name;
     private String store;
+    private String fair;
     private double selling_price;
     private double cost_price;
+    public String descrption;
     private String category;
-    private int quantity;
-    private int num_sold;
 
-    public Product(String name, String store, double selling_price, double cost_price, String category, int quantity, int num_sold) {
+    public Product(String name, String store, String fair, double selling_price, double cost_price, String descrption, String category) {
         this.name = name;
         this.store = store;
+        this.fair = fair;
         this.selling_price = selling_price;
         this.cost_price = cost_price;
         this.category = category;
-        this.quantity = quantity;
-        this.num_sold = num_sold;
+        this.descrption = descrption;
     }
 
 
@@ -29,44 +29,26 @@ public class Product {
         return store;
     }
 
+    public String getFairName() {
+        return fair;
+    }
     public double getSellingPrice() {
         return selling_price;
-    }
-
-    public void setSellingPrice(double selling_price) {
-        this.selling_price = selling_price;
     }
 
     public double getCostPrice() {
         return cost_price;
     }
 
+    public String getDescription() {
+        return descrption;
+    }
     public String getProductCategory() {
         return category;
     }
 
-    public int getQuantity() {
-        return quantity;
-    }
+    public String toString(){
 
-    public int getNumSold() {
-        return num_sold;
-    }
-
-    public void setNumSold(int num_sold) {
-        this.num_sold = num_sold;
-    }
-
-    @Override
-    public String toString() {
-        return "Product{" +
-                "name='" + name + '\'' +
-                ", store='" + store + '\'' +
-                ", selling_price=" + selling_price +
-                ", cost_price=" + cost_price +
-                ", category='" + category + '\'' +
-                ", quantity=" + quantity +
-                ", num_sold=" + num_sold +
-                '}';
+            return ("Product Name: " + this.name + " Store Name: " + this.store + " Fair Name: " + this.fair + " Selling Price: " + this.selling_price + " Cost Price: " + this.cost_price + " Description: " + this.descrption + " Category: " + this.category);
     }
 }

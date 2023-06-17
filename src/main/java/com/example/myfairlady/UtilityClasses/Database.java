@@ -4,6 +4,7 @@ import java.sql.*;
 public class Database{
 
 
+
     private static final String driver = "com.mysql.cj.jdbc.Driver";
     private static final String url = "jdbc:mysql://102.130.115.69:3306/neeraavrDB";
     private static final String username = "neeraavr";
