@@ -32,30 +32,30 @@ public class ProductManager {
 
     }
 
-    public void searchProductByName(String product_name,String store_name) throws SQLException {
+    public static void searchProductByName(String product_name,String store_name) throws SQLException {
 
         ResultSet s = Database.query("SELECT * FROM tblproducts WHERE product_name = '" + product_name + "' AND store = '" + store_name + "';");
 
     }
 
-    public void searchProductByCategory(String category) throws SQLException {
+    public static void searchProductByCategory(String category) throws SQLException {
 
         ResultSet s = Database.query("SELECT * FROM tblproducts WHERE category = '" + category + "';");
 
     }
 
-    public void searchProductByStore(String store_name, String fair_name) throws SQLException {
+    public static void searchProductByStore(String store_name, String fair_name) throws SQLException {
 
         ResultSet s = Database.query("SELECT * FROM tblproducts WHERE store = '" + store_name + "' AND fair = '" + fair_name + "';");
 
     }
 
-    public void searchproductByPriceASC(String store_name, String fair_name) throws SQLException {
+    public static void searchproductByPriceASC(String store_name, String fair_name) throws SQLException {
 
         ResultSet s = Database.query("SELECT * FROM tblproducts WHERE store = '" + store_name + "' AND fair = '" + fair_name + "' ORDER BY selling_price ASC;");
     }
 
-    public void searchproductByPriceDESC(String store_name, String fair_name) throws SQLException {
+    public static void searchproductByPriceDESC(String store_name, String fair_name) throws SQLException {
 
         ResultSet s = Database.query("SELECT * FROM tblproducts WHERE store = '" + store_name + "' AND fair = '" + fair_name + "' ORDER BY selling_price DESC;");
     }
