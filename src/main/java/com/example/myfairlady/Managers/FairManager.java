@@ -7,7 +7,7 @@ import java.sql.SQLException;
 
 public class FairManager {
 
-    public void addFair(Fair f) throws SQLException {
+    public static void addFair(Fair f) throws SQLException {
 
     String fair_name = f.getFair_name();
     String fair_owner_username = f.getFair_owner_username();
@@ -16,7 +16,25 @@ public class FairManager {
     String status = f.getStatus();
 
     Database.update("INSERT INTO tblfairs (fair_name, fair_owner, entrance_fee, duration, status) VALUES ('" + fair_name + "', '" + fair_owner_username + "', '" + entrance_fee + "', '" + duration + "', '" + status + "');");
+    System.out.println(f.toString());
 
     }
+
+    public static void deleteFair(Fair f) throws SQLException {
+
+        String fair_name = f.getFair_name();
+        String fair_owner_username = f.getFair_owner_username();
+
+        Database.update("DELETE FROM tblfairs WHERE fair_name = '" + fair_name + "' AND fair_owner = '" + fair_owner_username + "';");
+
+    }
+
+    public void getFairProfit(){
+
+//        Database.query("SELECT Sum() ;");
+
+    }
+
+
 
 }
