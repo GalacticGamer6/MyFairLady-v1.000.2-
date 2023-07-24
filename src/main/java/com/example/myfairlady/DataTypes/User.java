@@ -31,11 +31,11 @@ public class User {
         this.password = password;
     }
 
-    public String getAuthority_level() {
+    public String getAuthoritylevel() {
         return authority_level;
     }
 
-    public void setAuthority_level(String authority_level) {
+    public void setAuthoritylevel(String authority_level) {
         this.authority_level = authority_level;
     }
 

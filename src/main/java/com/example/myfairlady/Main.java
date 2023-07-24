@@ -1,7 +1,9 @@
 package com.example.myfairlady;
 
 import com.example.myfairlady.DataTypes.Fair;
+import com.example.myfairlady.DataTypes.User;
 import com.example.myfairlady.Managers.FairManager;
+import com.example.myfairlady.Managers.UserManager;
 import com.example.myfairlady.UtilityClasses.Database;
 import javafx.application.Application;
 import javafx.fxml.FXML;
@@ -25,6 +27,12 @@ public class Main extends Application{
         Database.initDB();
         Fair f = new Fair("Krusty Krab", null, 20, 20, "Mr Krabs", "Looking for help");
         FairManager.deleteFair(f);
+
+
+        User u = new User("Kyra", "1234", "Store Owner");
+        UserManager.addUser(u);
+        System.out.println(u.toString() + "was added to the database");
+
 
         launch();
 
