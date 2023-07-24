@@ -1,22 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="540.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.myfairlady.SceneController.StoreManagerController">
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Button layoutX="178.0" layoutY="115.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="83.0" style="-fx-background-radius: 10;">
-         <effect>
-            <DropShadow />
-         </effect>
-      </Button>
-      <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="195.0" layoutY="125.0" pickOnBounds="true">
-         <image>
-            <Image url="@../../../../../../../../Downloads/to-do-list.png" />
-         </image>
-      </ImageView>
+      <Pane prefHeight="540.0" prefWidth="255.0" style="-fx-background-color: #F06060;">
+         <children>
+            <Pane layoutY="400.0" prefHeight="140.0" prefWidth="255.0" style="-fx-background-color: #F06060;">
+               <children>
+                  <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="78.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../Login%20Images%20And%20Icons/Ferris%20Wheel%20256x.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <VBox layoutY="64.0" prefHeight="329.0" prefWidth="255.0" style="-fx-background-color: #f16666;">
+               <children>
+                  <Button mnemonicParsing="false" prefHeight="44.0" prefWidth="255.0" text="Products" />
+                  <Button mnemonicParsing="false" prefHeight="44.0" prefWidth="255.0" text="Employees" />
+                  <Button mnemonicParsing="false" prefHeight="44.0" prefWidth="255.0" text="Logs" />
+                  <Button mnemonicParsing="false" prefHeight="44.0" prefWidth="255.0" text="Status" />
+                  <Button mnemonicParsing="false" prefHeight="44.0" prefWidth="255.0" text="Store Options" />
+                  <Button mnemonicParsing="false" prefHeight="44.0" prefWidth="255.0" text="Button" />
+                  <Button mnemonicParsing="false" prefHeight="44.0" prefWidth="255.0" text="Button" />
+               </children>
+            </VBox>
+         </children>
+      </Pane>
+      <Pane layoutX="255.0" prefHeight="540.0" prefWidth="706.0" style="-fx-background-color: #5C4B51;" />
    </children>
 </AnchorPane>
