@@ -22,16 +22,10 @@ public class Main extends Application{
 
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
 
-        int i = 0;
-
         Database.initDB();
-        Fair f = new Fair("Krusty Krab", null, 20, 20, "Mr Krabs", "Looking for help");
-        FairManager.deleteFair(f);
 
 
-        User u = new User("Kyra", "1234", "Store Owner");
-        UserManager.addUser(u);
-        System.out.println(u.toString() + "was added to the database");
+        User u = UserManager.getUserByUsername("admin");
 
 
         launch();
