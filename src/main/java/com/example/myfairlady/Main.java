@@ -24,11 +24,11 @@ public class Main extends Application{
 
         Database.initDB();
 
+        ResultSet rs = UserManager.getUserByUsername("Rosemary");
 
-        User u = UserManager.getUserByUsername("admin");
 
 
-        launch();
+//        launch();
 
 
 

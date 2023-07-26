@@ -39,18 +39,10 @@ public class UserManager {
 
     }
 
-    public static User getUserByUsername(String usernameToSearch) throws SQLException {
+    public static ResultSet getUserByUsername(String usernameToSearch) throws SQLException {
+
         String query = "Select * from tblusers where username = '" + usernameToSearch + "';";
-
-        ResultSet rs = Database.query(query);
-        rs.next();
-        String username = rs.getString("username");
-        String password = rs.getString("password");
-        String account_level = rs.getString("AccountLevel");
-        User u = new User(username, password, account_level);
-        System.out.println(u.toString());
-
-        return u;
+        return Database.query(query);
 
     }
 
