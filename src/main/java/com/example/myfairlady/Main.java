@@ -24,7 +24,13 @@ public class Main extends Application{
 
         Database.initDB();
 
-        ResultSet rs = UserManager.getUserByUsername("Rosemary");
+        ResultSet rs = UserManager.getUsers();
+
+        //method that takes in a 2D array and prints it out in a formatted way
+        System.out.println(Database.toString(rs));
+
+
+
 
 
 

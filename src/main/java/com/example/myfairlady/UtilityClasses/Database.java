@@ -35,6 +35,7 @@ public class Database{
             return result;
         }
 
+        //Mr B's print method
         public static String toString(ResultSet rs) {
             String temp = "";
             try {
@@ -44,8 +45,9 @@ public class Database{
                 while (rs.next()) {
                     for (int i = 1; i <= size; i++) {
                         Object value = rs.getObject(i);
-                        temp += "#" + value;
+                        temp += " | " + value;
                     }
+                    temp += " |";
                     temp += "\n";
 
                 }
@@ -54,6 +56,7 @@ public class Database{
             }
             return temp;
         }
+
 
 
 }
