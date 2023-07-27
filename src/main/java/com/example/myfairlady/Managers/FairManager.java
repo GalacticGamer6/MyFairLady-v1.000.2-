@@ -3,6 +3,7 @@ package com.example.myfairlady.Managers;
 import com.example.myfairlady.DataTypes.Fair;
 import com.example.myfairlady.UtilityClasses.Database;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class FairManager {
@@ -27,12 +28,15 @@ public class FairManager {
 
         Database.update("DELETE FROM tblfairs WHERE fair_name = '" + fair_name + "' AND fair_owner = '" + fair_owner_username + "';");
 
+        //if we delete a fair, we should also delete all the stores associated with that fair
+        StoreManager.deleteStoresByFair(f);
+
     }
 
-    public void getFairProfit(){
+    public static ResultSet getFairs() throws SQLException {
 
-//        Database.query("SELECT Sum() ;");
-
+        String statmenet  = "Select * from tblfairs;";
+        return Database.query(statmenet);
     }
 
 

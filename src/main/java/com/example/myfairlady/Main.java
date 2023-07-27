@@ -24,7 +24,10 @@ public class Main extends Application{
 
         Database.initDB();
 
-        ResultSet rs = UserManager.getUserByUsername("Rosemary");
+        ResultSet rs = FairManager.getFairs();
+        System.out.println(Database.toString(rs));
+
+
 
 
 

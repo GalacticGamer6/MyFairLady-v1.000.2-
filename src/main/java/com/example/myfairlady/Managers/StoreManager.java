@@ -1,4 +1,5 @@
 package com.example.myfairlady.Managers;
+import com.example.myfairlady.DataTypes.Fair;
 import com.example.myfairlady.DataTypes.Store;
 import com.example.myfairlady.UtilityClasses.Database;
 
@@ -28,6 +29,13 @@ public class StoreManager {
         String store_owner = s.getStore_owner();
 
         Database.update("DELETE FROM tblstores WHERE store_name = '" + store_name + "' AND fair = '" + fair_name + "' AND owner = '" + store_owner + "';");
+
+    }
+
+    public static void deleteStoresByFair(Fair f){
+
+        String fair_name = f.getFair_name();
+        String statement = "DELETE FROM tblstores WHERE fair = '" + fair_name + "';";
 
     }
 
