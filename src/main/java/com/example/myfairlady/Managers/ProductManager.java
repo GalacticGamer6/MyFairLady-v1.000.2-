@@ -9,6 +9,7 @@ import java.sql.SQLException;
 
 public class ProductManager {
 
+    //adds a product object to the database
     public static void addProduct(Product product) throws SQLException {
 
         String product_name = product.getProductName();
@@ -23,6 +24,7 @@ public class ProductManager {
 
     }
 
+    //deletes a product object from the database
     public static void deleteProduct(Product p) throws SQLException {
         //primary key should be product name + store name + fair name
         String product_name = p.getProductName();
@@ -33,13 +35,13 @@ public class ProductManager {
 
     }
 
-    //gets all the products of a particular store
+    //gets all the products of a particular store , takes in the store name (Should rather take in the store object)
     public static void searchProductByStoreName(String store_name) throws SQLException {
 
         ResultSet s = Database.query("SELECT * FROM tblproducts WHERE store = '" + store_name + "';");
 
     }
-
+    //takes in the store name and a dedicated category(From UI) that will be used to search for products in that category in that store
     public static void searchProductByCategoryAndStore(String product_category,String store_name) throws SQLException {
 
         String statement = "Select * FROM tblproducts WHERE category = '" + product_category + "' AND store = '" + store_name + "';";
@@ -51,6 +53,7 @@ public class ProductManager {
         ResultSet s = Database.query("SELECT * FROM tblproducts WHERE store = '" + store_name + "' AND fair = '" + fair_name + "' ORDER BY selling_price ASC;");
     }
 
+    //lists the products in a descending order based on price in a particular store
     public static void searchproductByPriceDESC(String store_name, String fair_name) throws SQLException {
 
         ResultSet s = Database.query("SELECT * FROM tblproducts WHERE store = '" + store_name + "' AND fair = '" + fair_name + "' ORDER BY selling_price DESC;");

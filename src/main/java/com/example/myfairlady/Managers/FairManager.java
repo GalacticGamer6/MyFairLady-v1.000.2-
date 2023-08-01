@@ -8,6 +8,7 @@ import java.sql.SQLException;
 
 public class FairManager {
 
+    //adds a fair object to the database
     public static void addFair(Fair f) throws SQLException {
 
     String fair_name = f.getFair_name();
@@ -33,18 +34,21 @@ public class FairManager {
 
     }
 
+    //just gets all the fairs in the database
     public static ResultSet getFairs() throws SQLException {
 
         String statement  = "Select * from tblfairs;";
         return Database.query(statement);
     }
 
+    //gets the list of fairs that were created by a specific owner
     public static ResultSet getFairsByOwner(String owner_username) throws SQLException {
 
         String statement  = "Select * from tblfairs WHERE fair_owner = '" + owner_username + "';";
         return Database.query(statement);
     }
 
+    //gets the list of fairs that were previously closed an or are still open. (The parameter is either "open" or "closed"
     public static ResultSet getFairsByStatus(String status) throws SQLException {
 
         String statement  = "Select * from tblfairs WHERE status = '" + status + "';";

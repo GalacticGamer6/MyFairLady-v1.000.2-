@@ -3,6 +3,7 @@ package com.example.myfairlady;
 import com.example.myfairlady.DataTypes.Fair;
 import com.example.myfairlady.DataTypes.User;
 import com.example.myfairlady.Managers.FairManager;
+import com.example.myfairlady.Managers.SaleManager;
 import com.example.myfairlady.Managers.UserManager;
 import com.example.myfairlady.UtilityClasses.Database;
 import javafx.application.Application;
@@ -23,9 +24,7 @@ public class Main extends Application{
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
 
         Database.initDB();
-
-        ResultSet rs = FairManager.getFairs();
-        System.out.println(Database.toString(rs));
+        SaleManager.getSalesByStore("Costco");
 
 
 
