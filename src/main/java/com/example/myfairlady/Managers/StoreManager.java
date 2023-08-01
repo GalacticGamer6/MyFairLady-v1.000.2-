@@ -26,9 +26,8 @@ public class StoreManager {
 
         String store_name = s.getStore_name();
         String fair_name = s.getFair_name();
-        String store_owner = s.getStore_owner();
 
-        Database.update("DELETE FROM tblstores WHERE store_name = '" + store_name + "' AND fair = '" + fair_name + "' AND owner = '" + store_owner + "';");
+        Database.update("DELETE FROM tblstores WHERE store_name = '" + store_name + "' AND fair = '" + fair_name  + "';");
 
     }
 
@@ -39,11 +38,13 @@ public class StoreManager {
 
     }
 
-    public void getSelectedStore(){
+    public void searchStoresByNames(String store_name,String fair_name) throws SQLException {
+
+        ResultSet s = Database.query("SELECT * FROM tblstores WHERE store_name = '" + store_name + "';");
 
     }
 
-    public void searchStoresByNames(String store_name,String fair_name) throws SQLException {
+    public void searchStoresByNamesAndFair(String store_name,String fair_name) throws SQLException {
 
         ResultSet s = Database.query("SELECT * FROM tblstores WHERE store_name = '" + store_name + "';");
 

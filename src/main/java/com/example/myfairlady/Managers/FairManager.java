@@ -35,9 +35,23 @@ public class FairManager {
 
     public static ResultSet getFairs() throws SQLException {
 
-        String statmenet  = "Select * from tblfairs;";
-        return Database.query(statmenet);
+        String statement  = "Select * from tblfairs;";
+        return Database.query(statement);
     }
+
+    public static ResultSet getFairsByOwner(String owner_username) throws SQLException {
+
+        String statement  = "Select * from tblfairs WHERE fair_owner = '" + owner_username + "';";
+        return Database.query(statement);
+    }
+
+    public static ResultSet getFairsByStatus(String status) throws SQLException {
+
+        String statement  = "Select * from tblfairs WHERE status = '" + status + "';";
+        return Database.query(statement);
+    }
+
+
 
 
 
