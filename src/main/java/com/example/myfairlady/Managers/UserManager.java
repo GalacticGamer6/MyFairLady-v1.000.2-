@@ -52,4 +52,17 @@ public class UserManager {
         return Database.query(query);
 
     }
+
+    public static boolean authenitcateUser(String username, String password) throws SQLException {
+
+        String statment = "Select from tblusers where username = '" + username + "' and password = '" + password + "';";
+
+        //check if the resultset is empty
+        if(Database.query(statment).next()){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
 }
