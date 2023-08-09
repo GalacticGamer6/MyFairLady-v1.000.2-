@@ -23,14 +23,14 @@ public class Main extends Application{
 
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
 
-        Database.initDB();
-        SaleManager.getSalesByStore("Costco");
+//        Database.initDB();
+//        SaleManager.getSalesByStore("Costco");
 
 
 
 
 
-//        launch();
+        launch();
 
 
 

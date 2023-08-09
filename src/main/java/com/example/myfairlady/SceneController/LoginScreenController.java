@@ -19,9 +19,6 @@ public class LoginScreenController {
     private Button login_button;
 
     @FXML
-
-
-
     public void switchToStoreManagerScreen(ActionEvent e) throws IOException {
 
         //create a url from the file path

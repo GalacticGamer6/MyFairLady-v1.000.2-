@@ -1,8 +1,0 @@
-@font-face {
-    font-family: 'YourFontName';
-    src: url('../fonts/AmbarPearl.ttf');
-}
-
-.custom-font-label {
-    -fx-font-family: 'Ambar Pearl Personal Use';
-}
