@@ -18,11 +18,12 @@ public class LoginScreenController {
     @FXML
     private Button login_button;
 
+
     @FXML
     public void switchToStoreManagerScreen(ActionEvent e) throws IOException {
 
         //create a url from the file path
-        File fxml_file = new File("src/main/resources/com/example/myfairlady/StoreManagerMain.fxml");
+        File fxml_file = new File("src/main/resources/com/example/myfairlady/StoreScreens/StoreManagerMain.fxml");
         URL url = fxml_file.toURI().toURL();
 
         //load the url into the fxml loader
@@ -33,7 +34,11 @@ public class LoginScreenController {
         Stage stage = (Stage) ((Node)e.getSource()).getScene().getWindow();
         stage.setScene(scene);
         stage.show();
+
+
     }
+
+
 
 }
 

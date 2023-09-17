@@ -16,4 +16,6 @@ module com.example.myfairlady {
     exports com.example.myfairlady to javafx.graphics, javafx.fxml;
     exports com.example.myfairlady.SceneController to javafx.fxml,javafx.graphics;
     opens  com.example.myfairlady.SceneController to javafx.fxml,javafx.graphics;
+    exports com.example.myfairlady.SceneController.StoreControllers to javafx.fxml, javafx.graphics;
+    opens com.example.myfairlady.SceneController.StoreControllers to javafx.fxml, javafx.graphics;
 }

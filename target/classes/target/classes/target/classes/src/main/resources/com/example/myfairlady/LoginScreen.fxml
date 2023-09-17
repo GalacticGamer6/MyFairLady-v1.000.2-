@@ -15,9 +15,9 @@
          <children>
             <TextField layoutX="37.0" layoutY="179.0" prefHeight="25.0" prefWidth="272.0" style="-fx-background-radius: 12; -fx-background-color: F64668;" />
             <TextField layoutX="37.0" layoutY="258.0" prefHeight="25.0" prefWidth="272.0" style="-fx-background-radius: 12; -fx-background-color: F64668;" />
-            <Label layoutX="37.0" layoutY="159.0" prefHeight="17.0" prefWidth="96.0" text="Username:" textFill="#fe9677">
+            <Label layoutX="37.0" layoutY="157.0" prefHeight="17.0" prefWidth="96.0" text="Username:" textFill="#fe9677">
                <font>
-                  <Font name="Segoe UI Semibold" size="14.0" />
+                  <Font name="Century Gothic Bold" size="17.0" />
                </font>
             </Label>
             <Label layoutX="37.0" layoutY="231.0" prefHeight="17.0" prefWidth="96.0" text="Password:" textFill="#fe9677">
@@ -25,19 +25,22 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <Button fx:id="login_button" layoutX="37.0" layoutY="383.0" mnemonicParsing="false" onAction="#switchToStoreManagerScreen" prefHeight="25.0" prefWidth="279.0" text="LOGIN" />
+            <Button fx:id="login_button" layoutX="37.0" layoutY="383.0" mnemonicParsing="false" onAction="#switchToStoreManagerScreen" prefHeight="25.0" prefWidth="279.0" style="-fx-background-color: grey; -fx-background-radius: 50;" text="LOGIN" />
          </children>
       </AnchorPane>
    </left>
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #41436A;" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="251.0" layoutY="195.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="233.0" layoutY="195.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../Login%20Images%20And%20Icons/Ferris%20Wheel%20256x.png" />
                </image>
             </ImageView>
-            <Label fx:id="title_label" layoutX="296.0" layoutY="399.0" text="MyFairLady" textFill="#fe9677" />
+            <Label fx:id="title_label" layoutX="231.0" layoutY="362.0" text="MyFairLady" textFill="#fe9677">
+               <font>
+                  <Font name="Century Gothic Bold" size="28.0" />
+               </font></Label>
          </children>
       </AnchorPane>
    </center>
