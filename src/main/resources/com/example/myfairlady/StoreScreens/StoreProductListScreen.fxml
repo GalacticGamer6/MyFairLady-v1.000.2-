@@ -12,11 +12,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #41586a;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.myfairlady.SceneController.StoreControllers.StoreProductListController">
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #41436A;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.myfairlady.SceneController.StoreControllers.StoreProductListController">
    <children>
-      <Pane prefHeight="720.0" prefWidth="347.0" style="-fx-background-color: #6a4158;">
+      <Pane prefHeight="720.0" prefWidth="347.0" style="-fx-background-color: #984063;">
          <children>
-            <VBox layoutY="260.0" prefHeight="460.0" prefWidth="347.0">
+            <VBox layoutY="164.0" prefHeight="460.0" prefWidth="347.0">
                <children>
                   <Button alignment="BOTTOM_LEFT" mnemonicParsing="false" prefHeight="92.0" prefWidth="348.0" stylesheets="@../styles.css" text="Products List">
                      <graphic>
@@ -67,26 +67,22 @@
             </VBox>
          </children>
       </Pane>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="1099.0" layoutY="546.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../../StoreManagerMainScreen/products%20list.png" />
-         </image>
-      </ImageView>
       <Label layoutX="366.0" layoutY="25.0" prefHeight="86.0" prefWidth="274.0" text="Products List Screen" textFill="#fe9677">
          <font>
             <Font name="Century Gothic Bold" size="26.0" />
          </font>
       </Label>
-      <TableView layoutX="503.0" layoutY="200.0" prefHeight="337.0" prefWidth="519.0">
+      <TableView layoutX="381.0" layoutY="246.0" prefHeight="460.0" prefWidth="869.0" style="-fx-background-color: #545679;">
         <columns>
-          <TableColumn prefWidth="124.0" text="Product Number" />
-          <TableColumn prefWidth="68.0" text="Name" />
-            <TableColumn prefWidth="79.0" text="Selling Price" />
-            <TableColumn prefWidth="91.0" text="Cost Price" />
-            <TableColumn prefWidth="75.0" text="Description" />
-            <TableColumn prefWidth="75.0" text="Category" />
+          <TableColumn prefWidth="83.0" style="-fx-background-color: #fe9677;" text="Product No." />
+          <TableColumn prefWidth="89.0" text="Name" />
+            <TableColumn prefWidth="87.0" text="Selling Price" />
+            <TableColumn prefWidth="94.0" text="Cost Price" />
+            <TableColumn prefWidth="298.0" text="Description" />
+            <TableColumn minWidth="0.0" prefWidth="217.0" text="Category" />
         </columns>
       </TableView>
       <Separator layoutX="344.0" orientation="VERTICAL" prefHeight="720.0" prefWidth="10.0" />
+      <Button fx:id="add_product_button" layoutX="381.0" layoutY="149.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="137.0" text="Add a Product" />
    </children>
 </AnchorPane>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="960.0" styleClass="circular-image" stylesheets="@../styles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.myfairlady.SceneController.StoreControllers.StoreManagerController">
+   <children>
+      <Pane prefHeight="540.0" prefWidth="255.0" style="-fx-background-color: #984063;">
+         <children>
+            <Pane layoutY="400.0" prefHeight="140.0" prefWidth="255.0" style="-fx-background-color: #984063;">
+               <children>
+                  <Label fx:id="clock_label" alignment="CENTER" contentDisplay="CENTER" ellipsisString="" layoutX="65.0" layoutY="89.0" prefHeight="17.0" prefWidth="125.0" text="(Clock goes here)" />
+               </children></Pane>
+            <Circle fill="WHITE" layoutX="128.0" layoutY="104.0" radius="73.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+         </children>
+      </Pane>
+      <Pane layoutX="255.0" prefHeight="540.0" prefWidth="706.0" style="-fx-background-color: #41436A;">
+         <children>
+            <VBox layoutX="71.0" layoutY="42.0" prefHeight="451.0" prefWidth="564.0">
+               <children>
+                  <Separator prefWidth="200.0" />
+                  <Button fx:id="products_list_button" alignment="BOTTOM_LEFT" mnemonicParsing="false" onAction="#switchToStoreProductListScreen" prefHeight="95.0" prefWidth="564.0" stylesheets="@../styles.css" text="Products List" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" scaleX="0.8" scaleY="0.8">
+                           <image>
+                              <Image url="@../../../../StoreManagerMainScreen/products%20list.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="Century Gothic Bold" size="18.0" />
+                     </font>
+                  </Button>
+                  <Button alignment="BOTTOM_LEFT" mnemonicParsing="false" prefHeight="95.0" prefWidth="564.0" stylesheets="@../styles.css" text="Sales" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" scaleX="0.8" scaleY="0.8">
+                           <image>
+                              <Image url="@../../../../StoreManagerMainScreen/trolley.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="Century Gothic Bold" size="18.0" />
+                     </font>
+                  </Button>
+                  <Button alignment="BOTTOM_LEFT" mnemonicParsing="false" prefHeight="95.0" prefWidth="564.0" stylesheets="@../styles.css" text="Stats" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" scaleX="0.8" scaleY="0.8">
+                           <image>
+                              <Image url="@../../../../StoreManagerMainScreen/stats%20(1).png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="Century Gothic Bold" size="18.0" />
+                     </font>
+                  </Button>
+                  <Button alignment="BOTTOM_LEFT" mnemonicParsing="false" prefHeight="95.0" prefWidth="564.0" stylesheets="@../styles.css" text="Alerts" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" scaleX="0.8" scaleY="0.8">
+                           <image>
+                              <Image url="@../../../../StoreManagerMainScreen/notification.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="Century Gothic Bold" size="18.0" />
+                     </font>
+                  </Button>
+                  <Button alignment="BOTTOM_LEFT" mnemonicParsing="false" prefHeight="95.0" prefWidth="564.0" stylesheets="@../styles.css" text="Store Settings" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" scaleX="0.8" scaleY="0.8">
+                           <image>
+                              <Image url="@../../../../StoreManagerMainScreen/market.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="Century Gothic Bold" size="18.0" />
+                     </font>
+                  </Button>
+                  <Separator prefWidth="200.0" />
+               </children>
+            </VBox>
+         </children></Pane>
+   </children>
+</AnchorPane>
