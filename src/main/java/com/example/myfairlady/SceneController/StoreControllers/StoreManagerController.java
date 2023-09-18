@@ -1,5 +1,6 @@
 package com.example.myfairlady.SceneController.StoreControllers;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,9 +16,13 @@ import javafx.stage.Stage;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.text.SimpleDateFormat;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.ResourceBundle;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class StoreManagerController implements Initializable{
 
@@ -126,6 +131,22 @@ public class StoreManagerController implements Initializable{
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        //ChatGPT's Code
+        Timer timer = new Timer();
+        TimerTask task = new TimerTask() {
+            @Override
+            public void run() {
+
+                Platform.runLater(() -> {
+                    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss");
+                    LocalTime time = LocalTime.now();
+                    clock_label.setText(formatter.format(time));
+                });
+            }
+        };
+
+        timer.scheduleAtFixedRate(task, 0, 1000);
 
     }
 }
