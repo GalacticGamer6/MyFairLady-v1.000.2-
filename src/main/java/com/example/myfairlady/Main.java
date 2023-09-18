@@ -44,6 +44,7 @@ public class Main extends Application{
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
         primaryStage.setTitle("MyFairLady v1.000.2");
+        primaryStage.getIcons().add(new javafx.scene.image.Image("file:src/main/resources/Login Images And Icons/Ferris Wheel 256x.png"));
         primaryStage.show();
 
     }

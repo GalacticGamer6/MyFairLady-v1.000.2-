@@ -44,7 +44,7 @@ public class ChatGPT {
         }
         input.close();
 
-        return (response.toString().split("\"content\": \"")[1].split("\"")[0]).substring(4);
+        return (response.toString().split("\"content\": \"")[1].split("\"")[0]).substring(0);
 
     }
 
