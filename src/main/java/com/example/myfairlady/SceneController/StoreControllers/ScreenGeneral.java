@@ -18,6 +18,8 @@ public class ScreenGeneral {
             label.setText(current_time);
 
         }
+
+
     }
 
 

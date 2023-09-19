@@ -28,6 +28,8 @@ public class Main extends Application{
 
     public static void main(String[] args) throws SQLException, ClassNotFoundException, InterruptedException {
 
+
+        Database.initDB();
         launch();
 
 

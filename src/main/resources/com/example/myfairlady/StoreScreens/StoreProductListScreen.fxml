@@ -14,7 +14,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #D27685;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.myfairlady.SceneController.StoreControllers.StoreProductListController">
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #D27685;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.myfairlady.SceneController.StoreControllers.StoreProductListController">
    <children>
       <Pane prefHeight="720.0" prefWidth="347.0" style="-fx-background-color: #4b457a;">
          <children>
@@ -33,14 +33,14 @@
             <Font name="Century Gothic Bold" size="26.0" />
          </font>
       </Label>
-      <TableView layoutX="366.0" layoutY="130.0" prefHeight="460.0" prefWidth="869.0" style="-fx-background-color: #e4adb6; -fx-background-radius: 20;">
+      <TableView fx:id="products_list_table" layoutX="366.0" layoutY="130.0" prefHeight="460.0" prefWidth="869.0" style="-fx-background-color: #e4adb6; -fx-background-radius: 20;">
         <columns>
-          <TableColumn prefWidth="83.0" style="-fx-background-color: #9b98b5; -fx-background-radius: 20;" text="Product No." />
-          <TableColumn prefWidth="89.0" style="-fx-background-color: #9b98b5; -fx-background-radius: 20;" text="Name" />
-            <TableColumn prefWidth="87.0" style="-fx-background-color: #9b98b5; -fx-background-radius: 20;" text="Selling Price" />
-            <TableColumn prefWidth="94.0" style="-fx-background-color: #9b98b5; -fx-background-radius: 20;" text="Cost Price" />
-            <TableColumn prefWidth="298.0" style="-fx-background-color: #9b98b5; -fx-background-radius: 20;" text="Description" />
-            <TableColumn minWidth="0.0" prefWidth="217.0" style="-fx-background-color: #9b98b5; -fx-background-radius: 20;" text="Category" />
+          <TableColumn fx:id="product_number_tablecolumn" editable="false" prefWidth="83.0" text="Product No." />
+          <TableColumn fx:id="product_name_tablecolumn" prefWidth="89.0" text="Name" />
+            <TableColumn fx:id="selling_price_tablecolumn" prefWidth="87.0" text="Selling Price" />
+            <TableColumn fx:id="cost_price_tablecolumn" prefWidth="94.0" text="Cost Price" />
+            <TableColumn fx:id="description_table_column" prefWidth="298.0" text="Description" />
+            <TableColumn fx:id="category_table_column" minWidth="0.0" prefWidth="217.0" text="Category" />
         </columns>
       </TableView>
       <Separator layoutX="344.0" orientation="VERTICAL" prefHeight="720.0" prefWidth="10.0" />

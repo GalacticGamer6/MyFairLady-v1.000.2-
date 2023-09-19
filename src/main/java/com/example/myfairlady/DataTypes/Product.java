@@ -2,6 +2,7 @@ package com.example.myfairlady.DataTypes;
 
 public class Product {
 
+    private String product_number;
     private String name;
     private String store;
     private String fair;
@@ -10,7 +11,9 @@ public class Product {
     public String descrption;
     private String category;
 
-    public Product(String name, String store, String fair, double selling_price, double cost_price, String descrption, String category) {
+    public Product(String product_number,String name, String store, String fair, double selling_price, double cost_price, String descrption, String category) {
+
+        this.product_number = product_number;
         this.name = name;
         this.store = store;
         this.fair = fair;
@@ -45,6 +48,9 @@ public class Product {
     }
     public String getProductCategory() {
         return category;
+    }
+    public String getProductNumber() {
+        return product_number;
     }
 
     public String toString(){

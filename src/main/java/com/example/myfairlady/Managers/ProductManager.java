@@ -1,7 +1,6 @@
 package com.example.myfairlady.Managers;
 
 import com.example.myfairlady.DataTypes.Product;
-import com.example.myfairlady.DataTypes.Store;
 import com.example.myfairlady.UtilityClasses.Database;
 
 import java.sql.ResultSet;
@@ -36,10 +35,11 @@ public class ProductManager {
     }
 
     //gets all the products of a particular store , takes in the store name (Should rather take in the store object)
-    public static void searchProductByStoreName(String store_name) throws SQLException {
+    public static ResultSet searchProductByStoreName(String store_name) throws SQLException {
 
         ResultSet s = Database.query("SELECT * FROM tblproducts WHERE store = '" + store_name + "';");
 
+        return s;
     }
     //takes in the store name and a dedicated category(From UI) that will be used to search for products in that category in that store
     public static void searchProductByCategoryAndStore(String product_category,String store_name) throws SQLException {
