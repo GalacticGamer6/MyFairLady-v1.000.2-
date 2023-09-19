@@ -9,80 +9,45 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #41436A;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.myfairlady.SceneController.StoreControllers.StoreProductListController">
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #D27685;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.myfairlady.SceneController.StoreControllers.StoreProductListController">
    <children>
-      <Pane prefHeight="720.0" prefWidth="347.0" style="-fx-background-color: #984063;">
+      <Pane prefHeight="720.0" prefWidth="347.0" style="-fx-background-color: #4b457a;">
          <children>
-            <VBox layoutY="164.0" prefHeight="460.0" prefWidth="347.0">
-               <children>
-                  <Button alignment="BOTTOM_LEFT" mnemonicParsing="false" prefHeight="92.0" prefWidth="348.0" stylesheets="@../styles.css" text="Products List">
-                     <graphic>
-                        <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" scaleX="0.5" scaleY="0.5">
-                           <image>
-                              <Image url="@../../../../StoreManagerMainScreen/products%20list.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
-                  <Button alignment="BOTTOM_LEFT" mnemonicParsing="false" prefHeight="92.0" prefWidth="348.0" stylesheets="@../styles.css" text="Sales">
-                     <graphic>
-                        <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" scaleX="0.5" scaleY="0.5">
-                           <image>
-                              <Image url="@../../../../StoreManagerMainScreen/trolley.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
-                  <Button alignment="BOTTOM_LEFT" mnemonicParsing="false" prefHeight="92.0" prefWidth="347.0" stylesheets="@../styles.css" text="Stats">
-                     <graphic>
-                        <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" scaleX="0.5" scaleY="0.5">
-                           <image>
-                              <Image url="@../../../../StoreManagerMainScreen/stats%20(1).png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
-                  <Button alignment="BOTTOM_LEFT" mnemonicParsing="false" prefHeight="92.0" prefWidth="348.0" stylesheets="@../styles.css" text="Alerts">
-                     <graphic>
-                        <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" scaleX="0.5" scaleY="0.5">
-                           <image>
-                              <Image url="@../../../../StoreManagerMainScreen/notification.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
-                  <Button alignment="BOTTOM_LEFT" mnemonicParsing="false" prefHeight="92.0" prefWidth="351.0" stylesheets="@../styles.css" text="Store Settings">
-                     <graphic>
-                        <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" scaleX="0.5" scaleY="0.5">
-                           <image>
-                              <Image url="@../../../../StoreManagerMainScreen/market.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
-               </children>
-            </VBox>
+            <Line endX="156.0" layoutX="174.0" layoutY="218.0" startX="-157.0" stroke="#e4adb6" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9b98b5" height="200.0" layoutX="74.0" layoutY="239.0" stroke="#ffffff00" strokeType="INSIDE" style="-fx: 0110010;" width="200.0" />
+            <Circle fill="#e4adb6" layoutX="174.0" layoutY="103.0" radius="96.0" stroke="#9b98b5" strokeType="INSIDE" strokeWidth="3.5" />
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="99.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../Login%20Images%20And%20Icons/Ferris%20Wheel%20256x.png" />
+               </image>
+            </ImageView>
          </children>
       </Pane>
-      <Label layoutX="366.0" layoutY="25.0" prefHeight="86.0" prefWidth="274.0" text="Products List Screen" textFill="#fe9677">
+      <Label layoutX="366.0" layoutY="14.0" prefHeight="86.0" prefWidth="274.0" text="Products List Screen" textFill="#37306b">
          <font>
             <Font name="Century Gothic Bold" size="26.0" />
          </font>
       </Label>
-      <TableView layoutX="381.0" layoutY="246.0" prefHeight="460.0" prefWidth="869.0" style="-fx-background-color: #545679;">
+      <TableView layoutX="366.0" layoutY="130.0" prefHeight="460.0" prefWidth="869.0" style="-fx-background-color: #e4adb6; -fx-background-radius: 20;">
         <columns>
-          <TableColumn prefWidth="83.0" style="-fx-background-color: #fe9677;" text="Product No." />
-          <TableColumn prefWidth="89.0" text="Name" />
-            <TableColumn prefWidth="87.0" text="Selling Price" />
-            <TableColumn prefWidth="94.0" text="Cost Price" />
-            <TableColumn prefWidth="298.0" text="Description" />
-            <TableColumn minWidth="0.0" prefWidth="217.0" text="Category" />
+          <TableColumn prefWidth="83.0" style="-fx-background-color: #9b98b5; -fx-background-radius: 20;" text="Product No." />
+          <TableColumn prefWidth="89.0" style="-fx-background-color: #9b98b5; -fx-background-radius: 20;" text="Name" />
+            <TableColumn prefWidth="87.0" style="-fx-background-color: #9b98b5; -fx-background-radius: 20;" text="Selling Price" />
+            <TableColumn prefWidth="94.0" style="-fx-background-color: #9b98b5; -fx-background-radius: 20;" text="Cost Price" />
+            <TableColumn prefWidth="298.0" style="-fx-background-color: #9b98b5; -fx-background-radius: 20;" text="Description" />
+            <TableColumn minWidth="0.0" prefWidth="217.0" style="-fx-background-color: #9b98b5; -fx-background-radius: 20;" text="Category" />
         </columns>
       </TableView>
       <Separator layoutX="344.0" orientation="VERTICAL" prefHeight="720.0" prefWidth="10.0" />
-      <Button fx:id="add_product_button" layoutX="381.0" layoutY="149.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="137.0" text="Add a Product" />
+      <Button layoutX="378.0" layoutY="648.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="135.0" style="-fx-background-radius: 15; -fx-background-color: #5f5989; -fx-border-color: #9b98b5;" text="Add Product" textFill="#e4adb6">
+         <font>
+            <Font name="Century Gothic Bold" size="14.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
