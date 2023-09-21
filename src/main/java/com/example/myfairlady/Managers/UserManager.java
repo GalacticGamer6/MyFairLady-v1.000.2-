@@ -8,6 +8,8 @@ import java.sql.SQLException;
 
 public class UserManager {
 
+
+
     public static void addUser(User u) throws SQLException {
 
         String username = u.getUsername();
@@ -55,14 +57,24 @@ public class UserManager {
 
     public static boolean authenitcateUser(String username, String password) throws SQLException {
 
-        String statment = "Select from tblusers where username = '" + username + "' and password = '" + password + "';";
-
+        String statment = "Select * from tblusers where Username = '" + username + "' and Password = '" + password + "';";
+        System.out.println(statment);
         //check if the resultset is empty
         if(Database.query(statment).next()){
+            System.out.println("User exists");
             return true;
         }
         else{
+            System.out.println("User does not exist");
             return false;
         }
+    }
+
+    public static ResultSet searchUser(String username, String password) throws SQLException {
+
+        String query = "Select * from tblusers where Username = '" + username + "' and Password = '" + password + "';";
+        System.out.println(query);
+        return Database.query(query);
+
     }
 }

@@ -13,8 +13,8 @@
    <left>
       <AnchorPane prefHeight="540.0" prefWidth="345.0" style="-fx-background-color: #984063;" BorderPane.alignment="CENTER">
          <children>
-            <TextField layoutX="37.0" layoutY="179.0" prefHeight="25.0" prefWidth="272.0" style="-fx-background-radius: 12; -fx-background-color: F64668;" />
-            <TextField layoutX="37.0" layoutY="258.0" prefHeight="25.0" prefWidth="272.0" style="-fx-background-radius: 12; -fx-background-color: F64668;" />
+            <TextField fx:id="username_field" layoutX="37.0" layoutY="179.0" prefHeight="25.0" prefWidth="272.0" promptText="Enter A valid Username" style="-fx-background-radius: 12; -fx-background-color: F64668;" />
+            <TextField fx:id="password_field" layoutX="37.0" layoutY="258.0" prefHeight="25.0" prefWidth="272.0" promptText="Enter the Corresponding Password" style="-fx-background-radius: 12; -fx-background-color: F64668;" />
             <Label layoutX="37.0" layoutY="157.0" prefHeight="17.0" prefWidth="96.0" text="Username:" textFill="#fe9677">
                <font>
                   <Font name="Century Gothic Bold" size="17.0" />
@@ -25,7 +25,7 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <Button fx:id="login_button" layoutX="37.0" layoutY="383.0" mnemonicParsing="false" onAction="#switchToStoreManagerScreen" prefHeight="25.0" prefWidth="279.0" style="-fx-background-color: grey; -fx-background-radius: 50;" text="LOGIN" />
+            <Button fx:id="login_button" layoutX="37.0" layoutY="383.0" mnemonicParsing="false" onAction="#LoginButtonClicked" prefHeight="25.0" prefWidth="279.0" style="-fx-background-color: grey; -fx-background-radius: 50;" text="LOGIN" />
          </children>
       </AnchorPane>
    </left>
