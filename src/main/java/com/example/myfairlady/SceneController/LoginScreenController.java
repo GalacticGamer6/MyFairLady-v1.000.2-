@@ -1,21 +1,17 @@
 package com.example.myfairlady.SceneController;
 
-import com.example.myfairlady.DataTypes.User;
+import com.example.myfairlady.App;
 import com.example.myfairlady.Managers.UserManager;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
 
 import java.io.File;
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -36,7 +32,7 @@ public class LoginScreenController {
 
 
     @FXML
-    public void switchToStoreManagerScreen(ActionEvent e) throws IOException {
+    public void switchToStoreManagerScreen() throws IOException {
 
         //create a url from the file path
         File fxml_file = new File("src/main/resources/com/example/myfairlady/StoreScreens/StoreManagerMain.fxml");
@@ -47,14 +43,13 @@ public class LoginScreenController {
         Parent root = loader.load();
         Scene scene = new Scene(root);
 
-        Stage stage = (Stage) ((Node)e.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
+        App.getPrimaryStage().setScene(scene);
+        App.getPrimaryStage().show();
 
 
     }
 
-    public void switchToAdminManagerScreen(ActionEvent e) throws IOException {
+    public void switchToAdminManagerScreen() throws IOException {
 
         File fxml_file = new File("src/main/resources/com/example/myfairlady/AdminScreens/AdminHomeScreen.fxml");
         URL url = fxml_file.toURI().toURL();
@@ -63,13 +58,12 @@ public class LoginScreenController {
         Parent root = loader.load();
         Scene scene = new Scene(root);
 
-        Stage stage = (Stage) ((Node)e.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
+        App.getPrimaryStage().setScene(scene);
+        App.getPrimaryStage().show();
 
     }
 
-    public void LoginButtonClicked(ActionEvent e) throws IOException, SQLException {
+    public void LoginButtonClicked() throws IOException, SQLException {
 
         //get the username and password from the text fields
         String username = username_field.getText();
@@ -95,14 +89,14 @@ public class LoginScreenController {
             switch(auth){
                 case "Store Owner":
                     System.out.println("Store Owner");
-                    switchToStoreManagerScreen(new ActionEvent());
+                    switchToStoreManagerScreen();
                     break;
                 case "Fair Owner":
                     System.out.println("Store Manager");
                     break;
                 case "Admin":
                     System.out.println("Admin");
-                    switchToAdminManagerScreen(new ActionEvent());
+                    switchToAdminManagerScreen();
                     break;
 
 
