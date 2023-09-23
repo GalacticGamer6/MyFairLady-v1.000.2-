@@ -10,7 +10,7 @@ import javafx.stage.Stage;
 import java.sql.SQLException;
 
 public class App extends Application{
-
+    //we'll be saving the stage in this to be used across the app.
     private static Stage primaryStage;
 
     public static void main(String[] args) throws SQLException, ClassNotFoundException, InterruptedException {
@@ -27,6 +27,7 @@ public class App extends Application{
     }
 
 
+    //main entry point into the app
     public void start(Stage primaryStage) throws Exception {
         this.primaryStage = primaryStage;
         FXMLLoader loader = new FXMLLoader(getClass().getResource("LoginScreen.fxml"));

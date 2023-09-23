@@ -2,6 +2,7 @@ package com.example.myfairlady.SceneController;
 
 import com.example.myfairlady.App;
 import com.example.myfairlady.Managers.UserManager;
+import com.example.myfairlady.UtilityClasses.ScreenGeneral;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -31,38 +32,6 @@ public class LoginScreenController {
     private TextField username_field;
 
 
-    @FXML
-    public void switchToStoreManagerScreen() throws IOException {
-
-        //create a url from the file path
-        File fxml_file = new File("src/main/resources/com/example/myfairlady/StoreScreens/StoreManagerMain.fxml");
-        URL url = fxml_file.toURI().toURL();
-
-        //load the url into the fxml loader
-        FXMLLoader loader = new FXMLLoader(url);
-        Parent root = loader.load();
-        Scene scene = new Scene(root);
-
-        App.getPrimaryStage().setScene(scene);
-        App.getPrimaryStage().show();
-
-
-    }
-
-    public void switchToAdminManagerScreen() throws IOException {
-
-        File fxml_file = new File("src/main/resources/com/example/myfairlady/AdminScreens/AdminHomeScreen.fxml");
-        URL url = fxml_file.toURI().toURL();
-
-        FXMLLoader loader = new FXMLLoader(url);
-        Parent root = loader.load();
-        Scene scene = new Scene(root);
-
-        App.getPrimaryStage().setScene(scene);
-        App.getPrimaryStage().show();
-
-    }
-
     public void LoginButtonClicked() throws IOException, SQLException {
 
         //get the username and password from the text fields
@@ -89,14 +58,14 @@ public class LoginScreenController {
             switch(auth){
                 case "Store Owner":
                     System.out.println("Store Owner");
-                    switchToStoreManagerScreen();
+                    ScreenGeneral.switchScreen(ScreenGeneral.StoreManagerMainScreenLocation);
                     break;
                 case "Fair Owner":
                     System.out.println("Store Manager");
                     break;
                 case "Admin":
                     System.out.println("Admin");
-                    switchToAdminManagerScreen();
+                    ScreenGeneral.switchScreen(ScreenGeneral.AdminAccountScreenLocation);
                     break;
 
 

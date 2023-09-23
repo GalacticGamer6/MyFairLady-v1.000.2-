@@ -2,17 +2,23 @@ package com.example.myfairlady.DataTypes;
 
 public class User {
 
+    private int id;
     private String username;
     private String password;
     private String authority_level;
 
-    public User(String u, String p, String au){
+    public User(int id, String u, String p, String au){
 
+        this.id = id;
         this.username = u;
         this.password = p;
         this.authority_level = au;
 
 
+    }
+
+    public int getId(){
+        return this.id;
     }
 
     public String getUsername() {

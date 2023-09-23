@@ -27,21 +27,16 @@ public class StoreProductListController implements Initializable {
 
     @FXML
     private TableColumn<Product, String> product_number_tablecolumn;
-
-    @FXML
-    private TableColumn<Product, String> product_name_tablecolumn;
-
-    @FXML
-    private TableColumn<Product, Double> selling_price_tablecolumn;
-
-    @FXML
-    private TableColumn<Product, Double> cost_price_tablecolumn;
-
-    @FXML
-    private TableColumn<Product, String> description_table_column;
-
-    @FXML
-    private TableColumn<Product,String> category_table_column;
+        @FXML
+        private TableColumn<Product, String> product_name_tablecolumn;
+        @FXML
+        private TableColumn<Product, Double> selling_price_tablecolumn;
+        @FXML
+        private TableColumn<Product, Double> cost_price_tablecolumn;
+        @FXML
+        private TableColumn<Product, String> description_table_column;
+        @FXML
+        private TableColumn<Product,String> category_table_column;
 
 
     @Override

@@ -11,6 +11,7 @@ module com.example.myfairlady {
     requires eu.hansolo.tilesfx;
     requires javafx.graphics;
     requires java.sql;
+    requires org.json;
 
     opens com.example.myfairlady to javafx.fxml,javafx.graphics;
     exports com.example.myfairlady to javafx.graphics, javafx.fxml;
@@ -22,4 +23,6 @@ module com.example.myfairlady {
     exports com.example.myfairlady.DataTypes to javafx.fxml, javafx.graphics, javafx.base;
     exports  com.example.myfairlady.SceneController.AdminControllers to javafx.fxml, javafx.graphics;
     opens com.example.myfairlady.SceneController.AdminControllers to javafx.fxml, javafx.graphics;
+    exports com.example.myfairlady.UtilityClasses to javafx.fxml, javafx.graphics;
+    opens com.example.myfairlady.UtilityClasses to javafx.fxml, javafx.graphics;
 }

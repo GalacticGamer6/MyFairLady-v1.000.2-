@@ -1,5 +1,6 @@
 package com.example.myfairlady.SceneController.StoreControllers;
 
+import com.example.myfairlady.App;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -46,9 +47,12 @@ public class StoreManagerController implements Initializable{
     private Label clock_label;
 
 
+    public void ButtoSaleButtonPressed() throws IOException {
+        System.out.println("Sale button pressed");
+        switchToSalesScreen();
+    }
 
-
-    public void switchToStoreProductListScreen(ActionEvent e) throws IOException {
+    public void switchToStoreProductListScreen() throws IOException {
 
         //create a url from the file path
         File fxml_file = new File("src/main/resources/com/example/myfairlady/StoreScreens/StoreProductListScreen.fxml");
@@ -59,12 +63,11 @@ public class StoreManagerController implements Initializable{
         Parent root = loader.load();
         Scene scene = new Scene(root);
 
-        Stage stage = (Stage) ((Node)e.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
+        App.getPrimaryStage().setScene(scene);
+        App.getPrimaryStage().show();
     }
 
-    public void switchToSalesScreen(ActionEvent e) throws IOException {
+    public void switchToSalesScreen() throws IOException {
 
         //create a url from the file path
         File fxml_file = new File("src/main/resources/com/example/myfairlady/StoreScreens/StoreSalesScreen.fxml");
@@ -75,9 +78,8 @@ public class StoreManagerController implements Initializable{
         Parent root = loader.load();
         Scene scene = new Scene(root);
 
-        Stage stage = (Stage) ((Node)e.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
+        App.getPrimaryStage().setScene(scene);
+        App.getPrimaryStage().show();
     }
 
     public void switchToStoreStatsScreen(ActionEvent e) throws IOException {
@@ -131,7 +133,6 @@ public class StoreManagerController implements Initializable{
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
         //ChatGPT's Code
         Timer timer = new Timer();
         TimerTask task = new TimerTask() {
