@@ -13,7 +13,7 @@ import org.json.JSONArray;
 public class ChatGPT {
 
     public String url = "https://api.openai.com/v1/chat/completions";
-    public String api_key = "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";
+    public String api_key = "";
     public String model = "gpt-3.5-turbo";
 
 
