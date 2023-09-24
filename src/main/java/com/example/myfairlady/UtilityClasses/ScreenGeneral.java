@@ -26,8 +26,17 @@ public class ScreenGeneral {
     public static String StoreStatsScreenLocation = "src/main/resources/com/example/myfairlady/StoreScreens/StoreStatsScreen.fxml";
     public static String StoreSettingsScreenLocation = "src/main/resources/com/example/myfairlady/StoreScreens/StoreSettingsScreen.fxml";
 
+    //String path fir all the fair related fxml files
+    public static String FairAnnouncementsScreenLocation = "src/main/resources/com/example/myfairlady/FairScreens/FairAnnouncementsScreen.fxml";
+    public static String FairEntranceScreenLocation = "src/main/resources/com/example/myfairlady/FairScreens/FairEntranceScreen.fxml";
+    public static String FairSettingsScreenLocation = "src/main/resources/com/example/myfairlady/FairScreens/FairSettingsScreen.fxml";
+    public static String FairStatsScreenLocation = "src/main/resources/com/example/myfairlady/FairScreens/FairStatsScreen.fxml";
+    public static String FairStoresScreenLocation = "src/main/resources/com/example/myfairlady/FairScreens/FairStoresScreen.fxml";
+
+
     //String path for all the admin related Store Screens
     public static String AdminAccountScreenLocation = "src/main/resources/com/example/myfairlady/AdminScreens/AdminAccountScreen.fxml";
+    public static String AdminFairScreenLocation = "src/main/resources/com/example/myfairlady/AdminScreens/AdminFairScreen.fxml";
 
     public static void Clock(Label label){
 
@@ -50,19 +59,24 @@ public class ScreenGeneral {
     }
 
     public static void switchScreen(String file_path) throws IOException {
-
         //create a url from the file path
         File fxml_file = new File(file_path);
         URL url = fxml_file.toURI().toURL();
-
+        System.out.println(url);
         //load the url into the fxml loader
-        FXMLLoader loader = new FXMLLoader(url);
-        Parent root = loader.load();
+        FXMLLoader loader = new FXMLLoader(url);Parent root = loader.load();
         Scene scene = new Scene(root);
+
 
         App.getPrimaryStage().setScene(scene);
         App.getPrimaryStage().show();
 
+    }
+
+    public static void setDate(Label label){
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("E dd MMMM yyyy");
+        LocalDateTime date = LocalDateTime.now();
+        label.setText(formatter.format(date));
     }
 
 

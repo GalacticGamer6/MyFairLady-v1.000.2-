@@ -49,7 +49,6 @@ public class LoginScreenController {
             System.out.println("User Authenticated");
             //search the current user in the database and get the account level
             ResultSet rs = UserManager.searchUser(username,password);
-            System.out.println("WE have the result set");
             rs.next();
             String auth = rs.getString("AccountLevel");
             System.out.println(auth);
@@ -61,7 +60,8 @@ public class LoginScreenController {
                     ScreenGeneral.switchScreen(ScreenGeneral.StoreManagerMainScreenLocation);
                     break;
                 case "Fair Owner":
-                    System.out.println("Store Manager");
+                    System.out.println("Fair Owner");
+                    ScreenGeneral.switchScreen(ScreenGeneral.FairEntranceScreenLocation);
                     break;
                 case "Admin":
                     System.out.println("Admin");

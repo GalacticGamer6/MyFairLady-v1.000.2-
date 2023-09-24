@@ -2,36 +2,57 @@ package com.example.myfairlady.Managers;
 
 import com.example.myfairlady.DataTypes.User;
 import com.example.myfairlady.UtilityClasses.Database;
+import javafx.scene.chart.PieChart;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class UserManager {
 
+    public static boolean checkIfUserExists(String username, String password,String account_level) throws SQLException {
+
+        String query = "Select * from tblusers where username = '" + username + "' and password = '" + password + "' and AccountLevel = '" + account_level + "';";
 
 
-    public static void addUser(User u) throws SQLException {
 
-        String username = u.getUsername();
-        String password = u.getPassword();
-        String account_level = u.getAuthoritylevel();
+        ResultSet rs = Database.query(query);
+
+        //we need to see if there is an account with the same username and password as whats provided
+
+        if(rs == null){
+            //if the result set is empty, this is a new account wih a unique username and password
+            return false;
+        }
+        else{
+            if(rs.getString("username").equals(username)){
+                //if the username is the same, then there is already an account with that username
+                return true;
+            }
+            else{
+                //if the username is not the same, then there is no account with that username
+                return false;
+            }
+
+
+        }
+
+    }
+
+    public static void addUser(String username,String password,String account_level) throws SQLException {
+
 
         String query = "INSERT INTO tblusers (username, password, AccountLevel) VALUES ('" + username + "', '" + password + "', '" + account_level + "');";
         Database.update(query);
 
     }
 
+    //kust use the userID primary key()
+    public static void deleteUser(int userID) throws SQLException {
 
-    public static void deleteUser(User u) throws SQLException {
 
-        String username = u.getUsername();
-        String password = u.getPassword();
-        String account_level = u.getAuthoritylevel();
-
-        String query = "Delete from tblusers where username = '" + username + "' and password = '" + password + "' and AccountLevel = '" + account_level + "';";
+        String query = "Delete from tblusers where UserID = '" + userID + "';";
 
         Database.update(query);
-        System.out.println("Successfully Deleted " + u.toString());
     }
 
     public static ResultSet getUsers() throws SQLException {
@@ -39,6 +60,19 @@ public class UserManager {
         String query = "Select * from tblusers;";
         return Database.query(query);
 
+    }
+
+    public static ResultSet getAdminAndFairUsers() throws SQLException {
+
+        String statement = "Select * from tblusers where AccountLevel = 'Fair Owner' or AccountLevel = 'Admin';";
+        return Database.query(statement);
+
+    }
+
+    public static ResultSet getAdminAndFairUsersSorted(String sorted_by,String order) throws SQLException {
+
+        String statement = "Select * from tblusers where AccountLevel = 'Fair Owner' or AccountLevel = 'Admin' order by " + sorted_by + " " + order + ";";
+        return Database.query(statement);
     }
 
     public static ResultSet getUserByUsername(String usernameToSearch) throws SQLException {

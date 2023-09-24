@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #393646;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.myfairlady.SceneController.AdminControllers.AdminHomeController">
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #393646;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.myfairlady.SceneController.AdminControllers.AdminAccountsController">
    <children>
       <Pane prefHeight="720.0" prefWidth="386.0" style="-fx-background-color: #4F4557;">
          <children>
@@ -25,7 +25,7 @@
                         <Font name="Century Gothic Bold" size="18.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="80.0" prefWidth="376.0" stylesheets="@AdminStyles.css" text="Fair Management" textFill="#f4eee0">
+                  <Button mnemonicParsing="false" onAction="#FairManagerButtonClicked" prefHeight="80.0" prefWidth="376.0" stylesheets="@AdminStyles.css" text="Fair Management" textFill="#f4eee0">
                      <font>
                         <Font name="Century Gothic Bold" size="18.0" />
                      </font>
@@ -44,7 +44,7 @@
             </Label>
          </children>
       </Pane>
-      <Label fx:id="admin_clock_label" layoutX="1115.0" layoutY="81.0" text="(Clock Label)" textFill="#f4eee0">
+      <Label fx:id="admin_clock_label" alignment="BOTTOM_RIGHT" layoutX="1115.0" layoutY="81.0" text="(Clock Label)" textFill="#f4eee0">
          <font>
             <Font name="Century Gothic Bold" size="22.0" />
          </font>
@@ -54,27 +54,29 @@
             <Font name="Century Gothic Bold" size="22.0" />
          </font>
       </Label>
-      <Label fx:id="admin_clock_label2" layoutX="1120.0" layoutY="34.0" prefHeight="28.0" prefWidth="134.0" text="(day + date)" textFill="#f4eee0">
+      <Label fx:id="date_label" alignment="BOTTOM_RIGHT" layoutX="917.0" layoutY="34.0" prefHeight="28.0" prefWidth="337.0" text="(day + date)" textFill="#f4eee0">
          <font>
             <Font name="Century Gothic Bold" size="22.0" />
          </font>
       </Label>
-      <TableView layoutX="803.0" layoutY="171.0" prefHeight="379.0" prefWidth="457.0" style="-fx-background-color: #7c717d;">
+      <TableView fx:id="users_table" layoutX="803.0" layoutY="242.0" prefHeight="379.0" prefWidth="457.0" style="-fx-background-color: #7c717d;">
         <columns>
-          <TableColumn prefWidth="75.0" text="ID" />
-          <TableColumn prefWidth="134.0" text="Username" />
-            <TableColumn prefWidth="108.0" text="Password" />
-            <TableColumn prefWidth="138.0" text="Account Level" />
+          <TableColumn fx:id="id_table_column" prefWidth="75.0" text="ID" />
+          <TableColumn fx:id="username_table_column" prefWidth="134.0" text="Username" />
+            <TableColumn fx:id="password_table_column" prefWidth="108.0" text="Password" />
+            <TableColumn fx:id="account_level_table_column" prefWidth="138.0" text="Account Level" />
         </columns>
       </TableView>
-      <Button layoutX="803.0" layoutY="583.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="145.0" style="-fx-background-color: #8a7d8b; -fx-background-radius: 20;" text="Delete" />
-      <TextField layoutX="407.0" layoutY="198.0" prefHeight="25.0" prefWidth="216.0" />
-      <Separator layoutX="746.0" layoutY="171.0" orientation="VERTICAL" prefHeight="379.0" prefWidth="5.0" />
-      <TextField layoutX="407.0" layoutY="259.0" prefHeight="25.0" prefWidth="216.0" />
+      <Button layoutX="803.0" layoutY="639.0" mnemonicParsing="false" onAction="#DeleteUserButtonClicked" prefHeight="36.0" prefWidth="145.0" style="-fx-background-color: #8a7d8b; -fx-background-radius: 20;" stylesheets="@AdminStyles.css" text="Delete" />
+      <TextField fx:id="username_textfield" layoutX="407.0" layoutY="198.0" prefHeight="25.0" prefWidth="313.0" promptText="Enter a Username" />
+      <Separator layoutX="720.0" layoutY="198.0" orientation="VERTICAL" prefHeight="472.0" prefWidth="56.0" />
+      <TextField fx:id="password_textfield" layoutX="407.0" layoutY="259.0" prefHeight="25.0" prefWidth="313.0" promptText="Enter A Strong password" />
       <Label layoutX="407.0" layoutY="181.0" prefHeight="17.0" prefWidth="93.0" text="Username" textFill="#f4eee0" />
       <Label layoutX="407.0" layoutY="242.0" prefHeight="17.0" prefWidth="93.0" text="Password" textFill="#f4eee0" />
       <Label layoutX="407.0" layoutY="311.0" prefHeight="17.0" prefWidth="93.0" text="Account Level" textFill="#f4eee0" />
-      <Button layoutX="575.0" layoutY="514.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="145.0" style="-fx-background-color: #8a7d8b; -fx-background-radius: 20;" text="Add User" />
-      <ComboBox fx:id="account_level_combo_box" layoutX="407.0" layoutY="336.0" prefHeight="25.0" prefWidth="216.0" />
+      <Button layoutX="575.0" layoutY="514.0" mnemonicParsing="false" onAction="#AddUserButtonClicked" prefHeight="36.0" prefWidth="145.0" style="-fx-background-color: #8a7d8b; -fx-background-radius: 20;" stylesheets="@AdminStyles.css" text="Add User" />
+      <ComboBox fx:id="account_level_combo_box" layoutX="407.0" layoutY="336.0" prefHeight="25.0" prefWidth="313.0" promptText="Choose An Account Type" />
+      <ComboBox fx:id="column_to_be_ordered_combobox" layoutX="801.0" layoutY="198.0" onAction="#columnToBeOrderedComboboxSelected" prefHeight="25.0" prefWidth="184.0" promptText="Pick a column to sort:" />
+      <ComboBox fx:id="order_combobox" layoutX="1011.0" layoutY="198.0" onAction="#columnToBeOrderedComboboxSelected" prefHeight="25.0" prefWidth="93.0" promptText="Order" />
    </children>
 </AnchorPane>

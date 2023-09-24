@@ -31,12 +31,6 @@ public class StoreManager {
 
     }
 
-    public static void deleteStoresByFair(Fair f){
-
-        String fair_name = f.getFair_name();
-        String statement = "DELETE FROM tblstores WHERE fair = '" + fair_name + "';";
-
-    }
 
     public void searchStoresByNames(String store_name,String fair_name) throws SQLException {
 
