@@ -3,50 +3,49 @@ package com.example.myfairlady.DataTypes;
 
 public class Store {
 
-    private String store_name;
+//make private fields StoreID,StoreName,OwnerID,FairID,category,Status and profit
+
+    private String StoreID;
+    private String StoreName;
+    private String OwnerID;
+    private String FairID;
     private String category;
-    private Product[] list_of_products;
-    private Sale [] list_of_sales;
-    private String fair_name;
-    private String status;
+    private String Status;
+    private Double profit;
 
-    private String store_owner;
-
-    public Store(String store_name,String store_owner, String category, Product[] list_of_products, Sale[] list_of_sales, String fair_name, String status){
-        this.store_name = store_name;
+    //make constructor for this class
+    public Store(String StoreID, String StoreName, String OwnerID, String FairID, String category, String Status, Double profit) {
+        this.StoreID = StoreID;
+        this.StoreName = StoreName;
+        this.OwnerID = OwnerID;
+        this.FairID = FairID;
         this.category = category;
-        this.list_of_products = list_of_products;
-        this.list_of_sales = list_of_sales;
-        this.fair_name = fair_name;
-        this.status = status;
-        this.store_owner = store_owner;
+        this.Status = Status;
+        this.profit = profit;
     }
 
-    public String getStore_name() {
-        return store_name;
+    //make getters and setters for all fields
+    public String getStoreID() {
+        return StoreID;
     }
-
+    public String getStoreName() {
+        return StoreName;
+    }
+    public String getOwnerID() {
+        return OwnerID;
+    }
+    public String getFairID() {
+        return FairID;
+    }
     public String getCategory() {
         return category;
     }
-
-    public Product[] getList_of_products() {
-        return list_of_products;
-    }
-
-    public Sale[] getList_of_sales() {
-        return list_of_sales;
-    }
-
-    public String getFair_name() {
-        return fair_name;
-    }
-
     public String getStatus() {
-        return status;
+        return Status;
+    }
+    public Double getProfit() {
+        return profit;
     }
 
-    public String getStore_owner() {
-        return store_owner;
-    }
+
 }

@@ -33,6 +33,13 @@ public class FairManager {
         return Database.query(statement);
     }
 
+    //gets the fair that is owned by the user that just signed in.
+    public static ResultSet getCurrentFair(String username,String password) throws SQLException{
+        //hehe used cool subquery so that i dont have to make an obejct out of the login details
+        String statement = "Select * from tblfairs where FairOwnerID  = (Select UserID from tblusers where Username = '" + username + "' and Password = '" + password + "');";
+        return Database.query(statement);
+    }
+
 
 
 
