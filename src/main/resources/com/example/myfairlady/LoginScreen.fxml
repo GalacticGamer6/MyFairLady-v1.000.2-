@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -11,26 +12,35 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.myfairlady.SceneController.LoginScreenController">
    <left>
-      <AnchorPane prefHeight="540.0" prefWidth="345.0" style="-fx-background-color: #984063;" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="540.0" prefWidth="345.0" style="-fx-background-color: #2B2B2B;" BorderPane.alignment="CENTER">
          <children>
-            <TextField fx:id="username_field" layoutX="37.0" layoutY="179.0" prefHeight="25.0" prefWidth="272.0" promptText="Enter A valid Username" style="-fx-background-radius: 12; -fx-background-color: F64668;" />
-            <TextField fx:id="password_field" layoutX="37.0" layoutY="258.0" prefHeight="25.0" prefWidth="272.0" promptText="Enter the Corresponding Password" style="-fx-background-radius: 12; -fx-background-color: F64668;" />
-            <Label layoutX="37.0" layoutY="157.0" prefHeight="17.0" prefWidth="96.0" text="Username:" textFill="#fe9677">
+            <TextField fx:id="username_field" layoutX="37.0" layoutY="179.0" prefHeight="25.0" prefWidth="272.0" promptText="Enter A Valid Username" style="-fx-background-radius: 12; -fx-background-color: #423F3E;" />
+            <TextField fx:id="password_field" layoutX="37.0" layoutY="258.0" prefHeight="25.0" prefWidth="272.0" promptText="Enter the Corresponding Password" style="-fx-background-radius: 12; -fx-background-color: #423F3E;" />
+            <Label layoutX="37.0" layoutY="146.0" prefHeight="17.0" prefWidth="96.0" styleClass="text" stylesheets="@styles.css" text="Username:" textFill="#fe9677">
                <font>
-                  <Font name="Century Gothic Bold" size="17.0" />
+                  <Font name="Segoe UI Bold" size="18.0" />
                </font>
             </Label>
-            <Label layoutX="37.0" layoutY="231.0" prefHeight="17.0" prefWidth="96.0" text="Password:" textFill="#fe9677">
+            <Label layoutX="37.0" layoutY="226.0" prefHeight="17.0" prefWidth="96.0" styleClass="text" stylesheets="@styles.css" text="Password:" textFill="#fe9677">
                <font>
-                  <Font size="14.0" />
+                  <Font name="Segoe UI Bold" size="18.0" />
                </font>
             </Label>
-            <Button fx:id="login_button" layoutX="37.0" layoutY="383.0" mnemonicParsing="false" onAction="#LoginButtonClicked" prefHeight="25.0" prefWidth="279.0" style="-fx-background-color: grey; -fx-background-radius: 50;" text="LOGIN" />
+            <Button fx:id="login_button" layoutX="37.0" layoutY="383.0" mnemonicParsing="false" onAction="#LoginButtonClicked" prefHeight="25.0" prefWidth="279.0" style="-fx-background-color: #423F3E; -fx-background-radius: 50;" text="LOGIN" textFill="#fe9677">
+               <font>
+                  <Font name="Segoe UI Bold" size="12.0" />
+               </font></Button>
+            <Label layoutX="37.0" layoutY="46.0" prefHeight="65.0" prefWidth="169.0" text="Login" textFill="#fe9677">
+               <font>
+                  <Font name="Segoe UI Bold" size="26.0" />
+               </font>
+            </Label>
+            <Separator layoutX="35.0" layoutY="110.0" prefHeight="0.0" prefWidth="276.0" stylesheets="@styles.css" />
          </children>
       </AnchorPane>
    </left>
    <center>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #41436A;" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #423F3E;" BorderPane.alignment="CENTER">
          <children>
             <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="233.0" layoutY="195.0" pickOnBounds="true" preserveRatio="true">
                <image>

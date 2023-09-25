@@ -1,7 +1,13 @@
 package com.example.myfairlady.SceneController;
 
 import com.example.myfairlady.App;
+import com.example.myfairlady.DataTypes.Fair;
+import com.example.myfairlady.DataTypes.Store;
+import com.example.myfairlady.DataTypes.User;
+import com.example.myfairlady.Managers.FairManager;
+import com.example.myfairlady.Managers.StoreManager;
 import com.example.myfairlady.Managers.UserManager;
+import com.example.myfairlady.SceneController.StoreControllers.StoreManagerController;
 import com.example.myfairlady.UtilityClasses.ScreenGeneral;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -53,16 +59,28 @@ public class LoginScreenController {
             String auth = rs.getString("AccountLevel");
             System.out.println(auth);
 
+            User U = UserManager.returnUser(username,password);
+            App.current_user = U;
             //move to that screen
             switch(auth){
                 case "Store Owner":
                     System.out.println("Store Owner");
+
+                    Store s = StoreManager.ReturnStoreByOwnerID(String.valueOf(U.getId()));
+
+                    App.current_store = s;
+
                     ScreenGeneral.switchScreen(ScreenGeneral.StoreManagerMainScreenLocation);
                     break;
+
                 case "Fair Owner":
                     System.out.println("Fair Owner");
+
+                    Fair f = FairManager.returnFairByOwnerID(String.valueOf(U.getId()));
+                    App.current_fair = f;
                     ScreenGeneral.switchScreen(ScreenGeneral.FairEntranceScreenLocation);
                     break;
+
                 case "Admin":
                     System.out.println("Admin");
                     ScreenGeneral.switchScreen(ScreenGeneral.AdminAccountScreenLocation);
@@ -77,6 +95,8 @@ public class LoginScreenController {
         }
 
     }
+
+
 
 
 

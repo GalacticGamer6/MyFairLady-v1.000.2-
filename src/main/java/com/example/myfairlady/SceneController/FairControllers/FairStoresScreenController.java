@@ -15,16 +15,7 @@ import java.sql.ResultSet;
 
 public class FairStoresScreenController {
 
-    private void SetCurrentFair() throws Exception {
 
-        ResultSet rs = FairManager.getCurrentFair();
-        if(rs.next()) {
-            currentFair = new Fair(rs.getString("FairID"), rs.getString("FairName"), rs.getString("OwnerID"), rs.getDate("StartDate"), rs.getDate("EndDate"), rs.getDouble("EntranceFee"), rs.getDouble("TotalProfit"));
-        }
-        else{
-            throw new Exception("No current fair");
-        }
-    }
 
     @FXML
     private TableView<Store> stores_table;
@@ -70,7 +61,7 @@ public class FairStoresScreenController {
         status_column.setCellValueFactory(new PropertyValueFactory<>("Status"));
         profit_column.setCellValueFactory(new PropertyValueFactory<>("profit"));
 
-        ResultSet rs = StoreManager.getStores(currentFair.getFairID());
+//        ResultSet rs = StoreManager.getStores(currentFair.getFairID());
 
     }
 }

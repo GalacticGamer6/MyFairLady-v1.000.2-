@@ -14,5 +14,28 @@ public class StoreManager {
         return Database.query(statement);
     }
 
+    public static Store ReturnStoreByOwnerID(String OwnerID) throws SQLException {
+
+        String statement = "Select * from tblstores where OwnerID = '" + OwnerID + "'";
+        ResultSet rs = Database.query(statement);
+
+        //turn the resultset into a store object
+        rs.next();
+        String StoreID = rs.getString("StoreID");
+        String StoreName = rs.getString("StoreName");
+        String current_owner_id = rs.getString("OwnerID");
+        String FairID = rs.getString("FairID");
+        String category = rs.getString("Category");
+        String status = rs.getString("Status");
+        Double profit = rs.getDouble("Profit");
+
+        Store s = new Store(StoreID,StoreName,current_owner_id,FairID,category,status,profit);
+        return s;
+    }
+
+
+
+
+
 
 }

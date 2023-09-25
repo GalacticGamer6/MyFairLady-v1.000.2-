@@ -38,6 +38,22 @@ public class UserManager {
 
     }
 
+    public static User returnUser(String username, String password) throws SQLException {
+
+        ResultSet rs = searchUser(username,password);
+
+        //fill up a user boject with the data from the resultset
+        rs.next();
+        int UserID = rs.getInt("UserID");
+        String current_username = rs.getString("Username");
+        String current_password = rs.getString("Password");
+        String accountLevel = rs.getString("AccountLevel");
+
+        User u = new User(UserID,current_username,current_password,accountLevel);
+        return u;
+
+    }
+
     public static void addUser(String username,String password,String account_level) throws SQLException {
 
 

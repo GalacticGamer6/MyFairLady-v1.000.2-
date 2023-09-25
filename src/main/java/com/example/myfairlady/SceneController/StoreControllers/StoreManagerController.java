@@ -1,6 +1,10 @@
 package com.example.myfairlady.SceneController.StoreControllers;
 
 import com.example.myfairlady.App;
+import com.example.myfairlady.DataTypes.Store;
+import com.example.myfairlady.DataTypes.User;
+import com.example.myfairlady.Managers.UserManager;
+import com.example.myfairlady.UtilityClasses.ScreenGeneral;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -17,6 +21,8 @@ import javafx.stage.Stage;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
@@ -26,6 +32,8 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class StoreManagerController implements Initializable{
+
+    public static Store current_store;
 
     @FXML
     private Button products_list_button;
@@ -69,17 +77,7 @@ public class StoreManagerController implements Initializable{
 
     public void switchToSalesScreen() throws IOException {
 
-        //create a url from the file path
-        File fxml_file = new File("src/main/resources/com/example/myfairlady/StoreScreens/StoreSalesScreen.fxml");
-        URL url = fxml_file.toURI().toURL();
-
-        //load the url into the fxml loader
-        FXMLLoader loader = new FXMLLoader(url);
-        Parent root = loader.load();
-        Scene scene = new Scene(root);
-
-        App.getPrimaryStage().setScene(scene);
-        App.getPrimaryStage().show();
+        ScreenGeneral.switchScreen(ScreenGeneral.StoreSalesScreenLocation);
     }
 
     public void switchToStoreStatsScreen(ActionEvent e) throws IOException {
@@ -133,6 +131,7 @@ public class StoreManagerController implements Initializable{
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
         //ChatGPT's Code
         Timer timer = new Timer();
         TimerTask task = new TimerTask() {
@@ -149,5 +148,9 @@ public class StoreManagerController implements Initializable{
 
         timer.scheduleAtFixedRate(task, 0, 1000);
 
+
+
     }
+
+
 }

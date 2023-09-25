@@ -23,15 +23,6 @@ public class SaleManager {
 
     }
 
-    public static void addSale(Product p) throws SQLException {
-
-        //prepping to get the current itme of the sale
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-        LocalDateTime now = LocalDateTime.now();
-        String time = formatter.format(now);
-
-        String statement = "Insert into tbsales (product_name, store_name, fair_name, date) VALUES ('" + p.getProductName() + "', '" + p.getStoreName() + "', '" + p.getFairName() + "', '" + time + "');";
-    }
 
 
 

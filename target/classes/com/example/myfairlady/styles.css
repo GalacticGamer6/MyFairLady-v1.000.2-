@@ -9,3 +9,10 @@
 .button:hover {
     -fx-background-color: #fe9677;
 }
+
+/* The following styles are for the Login screen */
+.separator .line {
+    -fx-background-color: #fe9677;
+    -fx-pref-height: 5;
+    -fx-border-color: null ;
+}

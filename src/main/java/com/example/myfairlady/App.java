@@ -1,5 +1,8 @@
 package com.example.myfairlady;
 
+import com.example.myfairlady.DataTypes.Fair;
+import com.example.myfairlady.DataTypes.Store;
+import com.example.myfairlady.DataTypes.User;
 import com.example.myfairlady.UtilityClasses.Database;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -13,10 +16,18 @@ public class App extends Application{
     //we'll be saving the stage in this to be used across the app.
     private static Stage primaryStage;
 
+    public static Store current_store;
+    public static Fair current_fair;
+    public static User current_user;
+
+
+
+
     public static void main(String[] args) throws SQLException, ClassNotFoundException, InterruptedException {
 
 
         Database.initDB();
+
         launch();
 
 

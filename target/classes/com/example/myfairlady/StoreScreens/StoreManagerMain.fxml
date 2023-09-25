@@ -11,13 +11,13 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="960.0" styleClass="circular-image" stylesheets="@../styles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.myfairlady.SceneController.StoreControllers.StoreManagerController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="960.0" styleClass="circular-image" stylesheets="@../styles.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.myfairlady.SceneController.StoreControllers.StoreManagerController">
    <children>
       <Pane prefHeight="540.0" prefWidth="255.0" style="-fx-background-color: #984063;">
          <children>
             <Pane layoutY="400.0" prefHeight="140.0" prefWidth="255.0" style="-fx-background-color: #984063;">
                <children>
-                  <Label fx:id="clock_label" alignment="CENTER" contentDisplay="CENTER" ellipsisString="" layoutX="65.0" layoutY="89.0" prefHeight="17.0" prefWidth="125.0" text="(Clock goes here)" />
+                  <Label fx:id="clock_label" alignment="CENTER" contentDisplay="CENTER" ellipsisString="" layoutX="27.0" layoutY="90.0" prefHeight="23.0" prefWidth="201.0" styleClass="text" stylesheets="@StoreStyles.css" text="(Clock goes here)" />
                </children></Pane>
             <Circle fill="WHITE" layoutX="128.0" layoutY="104.0" radius="73.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
          </children>
@@ -39,7 +39,7 @@
                         <Font name="Century Gothic Bold" size="18.0" />
                      </font>
                   </Button>
-                  <Button alignment="BOTTOM_LEFT" mnemonicParsing="false" prefHeight="95.0" prefWidth="564.0" stylesheets="@../styles.css" text="Sales" textFill="WHITE">
+                  <Button alignment="BOTTOM_LEFT" mnemonicParsing="false" onAction="#switchToSalesScreen" prefHeight="95.0" prefWidth="564.0" stylesheets="@../styles.css" text="Sales" textFill="WHITE">
                      <graphic>
                         <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" scaleX="0.8" scaleY="0.8">
                            <image>

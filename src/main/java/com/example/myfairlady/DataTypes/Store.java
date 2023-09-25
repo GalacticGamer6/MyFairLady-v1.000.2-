@@ -47,5 +47,19 @@ public class Store {
         return profit;
     }
 
+    //create a toString method for this class
+    @Override
+    public String toString() {
+        return "Store{" +
+                "StoreID='" + StoreID + '\'' +
+                ", StoreName='" + StoreName + '\'' +
+                ", OwnerID='" + OwnerID + '\'' +
+                ", FairID='" + FairID + '\'' +
+                ", category='" + category + '\'' +
+                ", Status='" + Status + '\'' +
+                ", profit=" + profit +
+                '}';
+    }
+
 
 }

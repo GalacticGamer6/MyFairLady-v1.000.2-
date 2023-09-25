@@ -2,6 +2,7 @@ package com.example.myfairlady.DataTypes;
 
 public class User {
 
+
     private int id;
     private String username;
     private String password;

@@ -87,16 +87,16 @@ public class StoreProductListController implements Initializable {
         //turn products list resultset into an array if objects to be put into the observable list
         while(pl.next()){
 
-            String product_number = pl.getString("product_number");
-            String product_name = pl.getString("product_name");
-            String store_name = pl.getString("store");
-            String fair_name = pl.getString("fair");
-            double selling_price = pl.getDouble("selling_price");
-            double cost_price = pl.getDouble("cost_price");
-            String description = pl.getString("description");
-            String category = pl.getString("category");
-
-            Product p = new Product(product_number,product_name,store_name,fair_name,selling_price,cost_price,description,category);
+            String product_number = pl.getString("ProductID");
+            String product_name = pl.getString("ProductName");
+            String store_name = pl.getString("StoreID");
+            String fair_name = pl.getString("FairID");
+            double selling_price = pl.getDouble("SellingPrice");
+            double cost_price = pl.getDouble("CostPrice");
+            String description = pl.getString("Description");
+            String category = pl.getString("Category");
+            int quantity = pl.getInt("Quantity");
+            Product p = new Product(product_number,product_name,store_name,fair_name,selling_price,cost_price,description,category,quantity);
 
             products.add(p);
 

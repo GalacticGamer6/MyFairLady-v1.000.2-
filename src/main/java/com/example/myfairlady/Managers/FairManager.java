@@ -40,9 +40,29 @@ public class FairManager {
         return Database.query(statement);
     }
 
+    public static Fair returnFairByOwnerID(String OwnerID) throws SQLException {
+
+        String statement = "Select * from tblfairs where FairOwnerID = '" + OwnerID + "'";
+        ResultSet rs = Database.query(statement);
+
+        //turn the restultset into a fair object
+        rs.next();
+        String FairID = rs.getString("FairID");
+        String FairName = rs.getString("FairName");
+        String FairOwnerID = rs.getString("FairOwnerID");
+        LocalDate StartDate = rs.getDate("StartDate").toLocalDate();
+        LocalDate EndDate = rs.getDate("EndDate").toLocalDate();
+        double EntranceFee = rs.getDouble("EntranceFee");
+        double FairProfit = rs.getDouble("FairProfit");
+
+        Fair F = new Fair(FairID,FairName,FairOwnerID,StartDate,EndDate,EntranceFee,FairProfit);
+        return F;
+        }
+    }
 
 
 
 
 
-}
+
+
