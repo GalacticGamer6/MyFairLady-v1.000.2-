@@ -1,19 +1,34 @@
 package com.example.myfairlady.UtilityClasses;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
+import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.Scanner;
+
 import org.json.JSONObject;
 import org.json.JSONArray;
 
 // all chatgpt's code lol
 public class ChatGPT {
 
+    private static String getKey() throws FileNotFoundException {
+
+        Scanner sc = new Scanner(new File("key.txt"));
+        String key = sc.nextLine();
+        return key;
+
+    }
     public static String url = "https://api.openai.com/v1/chat/completions";
-    public static String api_key = "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";
+    public static String api_key;
+
+    static {
+        try {
+            api_key = getKey();
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public static String model = "gpt-4";
 
 
@@ -79,6 +94,8 @@ public class ChatGPT {
         return content;
     }
 
-
+//    public static void main(String[] args) throws FileNotFoundException {
+//        System.out.println(getKey());
+//    }
 
 }

@@ -4,6 +4,7 @@ import com.example.myfairlady.DataTypes.Fair;
 import com.example.myfairlady.DataTypes.Store;
 import com.example.myfairlady.DataTypes.User;
 import com.example.myfairlady.Managers.StoreManager;
+import com.example.myfairlady.UtilityClasses.ChatGPT;
 import com.example.myfairlady.UtilityClasses.Database;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -26,7 +27,6 @@ public class App extends Application{
 
 
     public static void main(String[] args) throws SQLException, ClassNotFoundException, InterruptedException, IOException {
-
 
         Database.initDB();
         launch();
