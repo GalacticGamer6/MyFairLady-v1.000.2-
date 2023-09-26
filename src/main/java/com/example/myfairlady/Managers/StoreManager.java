@@ -1,8 +1,10 @@
 package com.example.myfairlady.Managers;
 import com.example.myfairlady.DataTypes.Fair;
 import com.example.myfairlady.DataTypes.Store;
+import com.example.myfairlady.UtilityClasses.ChatGPT;
 import com.example.myfairlady.UtilityClasses.Database;
 
+import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -36,6 +38,13 @@ public class StoreManager {
     public static void updateStoreProfit(Store s, Double profit) throws SQLException {
         String statement = "UPDATE tblstores SET Profit = " + (s.getProfit() + profit) + " WHERE StoreID = '" + s.getStoreID() + "'";
         Database.update(statement);
+    }
+
+    public static String generateMotivationalquote() throws IOException {
+
+        return ChatGPT.askChatBot("Generate a random motivational quote in the style of a successful business person giving advice to a novice store owner limit your response to 30 words or less");
+
+
     }
 
 

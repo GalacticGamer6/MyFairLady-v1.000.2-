@@ -6,6 +6,7 @@ import com.example.myfairlady.DataTypes.Sale;
 import com.example.myfairlady.Managers.ProductManager;
 import com.example.myfairlady.Managers.SaleManager;
 import com.example.myfairlady.Managers.StoreManager;
+import com.example.myfairlady.UtilityClasses.ScreenGeneral;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -16,6 +17,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -70,14 +72,13 @@ public class StoreSalesController implements Initializable {
             String product_id = rs.getString("ProductID");
             String product_name = rs.getString("ProductName");
             String store_id = rs.getString("StoreID");
-            String fair_id = rs.getString("FairID");
             Double selling_price = rs.getDouble("SellingPrice");
             Double cost_price = rs.getDouble("CostPrice");
             String description = rs.getString("Description");
             String category = rs.getString("Category");
             int quantity = rs.getInt("Quantity");
 
-            Product P = new Product(product_id,product_name,store_id,fair_id,selling_price,cost_price,description,category,quantity);
+            Product P = new Product(product_id,product_name,store_id,selling_price,cost_price,description,category,quantity);
             products.add(P);
         }
 
@@ -143,6 +144,10 @@ public class StoreSalesController implements Initializable {
         total_cost_label.setText(updateTotalCost() + "");
 
 
+    }
+
+    public void backButtonClicked() throws IOException {
+        ScreenGeneral.switchScreen(ScreenGeneral.StoreManagerMainScreenLocation);
     }
 
 

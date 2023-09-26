@@ -12,12 +12,12 @@ import org.json.JSONArray;
 // all chatgpt's code lol
 public class ChatGPT {
 
-    public String url = "https://api.openai.com/v1/chat/completions";
-    public String api_key = "";
-    public String model = "gpt-3.5-turbo";
+    public static String url = "https://api.openai.com/v1/chat/completions";
+    public static String api_key = "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";
+    public static String model = "gpt-4";
 
 
-    public String askChatBot(String message) throws IOException {
+    public static String askChatBot(String message) throws IOException {
         // Check if API key is available
         if (api_key == null || api_key.isEmpty()) {
             throw new IOException("API key is missing!");
@@ -34,9 +34,18 @@ public class ChatGPT {
         con.setDoOutput(true);
 
         // Write request body
-        String body = String.format("{\"model\": \"%s\", \"messages\": [{\"role\": \"user\", \"content\": \"%s\"}]}", model, message);
+
+        //setup a JSON object to send to the API
+        JSONArray messages = new JSONArray();
+        messages.put(new JSONObject().put("role", "user").put("content", message));
+        JSONObject json = new JSONObject();
+        json.put("messages", messages);
+        json.put("max_tokens", 150);
+        json.put("temperature", 0.9);
+        json.put("model", model);
+
         try (OutputStreamWriter writer = new OutputStreamWriter(con.getOutputStream())) {
-            writer.write(body);
+            writer.write(json.toString());
             writer.flush();
         }
 
@@ -57,7 +66,7 @@ public class ChatGPT {
 
 
     // This method extracts the response expected from chatgpt and returns it.
-    public String extractContentFromResponse(String response) {
+    public static String extractContentFromResponse(String response) {
         // Create a JSONObject from the response string
         JSONObject jsonResponse = new JSONObject(response);
 
@@ -70,13 +79,6 @@ public class ChatGPT {
         return content;
     }
 
-    public static void main(String[] args) throws IOException {
-
-        String message = "Wait actually , can you re iterate the trip plan?";
-        ChatGPT chatGPT = new ChatGPT();
-        String output = chatGPT.askChatBot(message);
-        System.out.println(output);
-    }
 
 
 }

@@ -101,7 +101,7 @@ public class AdminFairController implements Initializable {
 
 
 
-            Fair current_fair = new Fair(fair_id, fair_name, owner_id, start_date, end_date, entrance_fee, total_profit);
+            Fair current_fair = new Fair(fair_name, owner_id, start_date, end_date, entrance_fee, total_profit);
 
             fairs.add(current_fair);
         }

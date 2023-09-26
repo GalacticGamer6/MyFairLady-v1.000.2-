@@ -55,7 +55,7 @@ public class FairManager {
         double EntranceFee = rs.getDouble("EntranceFee");
         double FairProfit = rs.getDouble("FairProfit");
 
-        Fair F = new Fair(FairID,FairName,FairOwnerID,StartDate,EndDate,EntranceFee,FairProfit);
+        Fair F = new Fair(FairName,FairOwnerID,StartDate,EndDate,EntranceFee,FairProfit);
         return F;
         }
     }

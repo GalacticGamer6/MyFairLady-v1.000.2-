@@ -3,39 +3,26 @@ package com.example.myfairlady.Managers;
 import com.example.myfairlady.DataTypes.User;
 import com.example.myfairlady.UtilityClasses.Database;
 import javafx.scene.chart.PieChart;
+import javafx.scene.control.Alert;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class UserManager {
 
-    public static boolean checkIfUserExists(String username, String password,String account_level) throws SQLException {
+    //check if user to be added already exists take in username and pasword
+    public static boolean userExists(String username,String password) throws SQLException {
 
-        String query = "Select * from tblusers where username = '" + username + "' and password = '" + password + "' and AccountLevel = '" + account_level + "';";
+            String query = "Select * from tblusers where Username = '" + username + "' and Password = '" + password + "';";
+            System.out.println(query);
 
-
-
-        ResultSet rs = Database.query(query);
-
-        //we need to see if there is an account with the same username and password as whats provided
-
-        if(rs == null){
-            //if the result set is empty, this is a new account wih a unique username and password
-            return false;
-        }
-        else{
-            if(rs.getString("username").equals(username)){
-                //if the username is the same, then there is already an account with that username
+            //check if the resultset is empty
+            if(Database.query(query).next()){
                 return true;
             }
             else{
-                //if the username is not the same, then there is no account with that username
                 return false;
             }
-
-
-        }
-
     }
 
     public static User returnUser(String username, String password) throws SQLException {

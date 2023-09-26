@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #41436A;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.myfairlady.SceneController.StoreControllers.StoreSalesController">
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #41436A;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.myfairlady.SceneController.StoreControllers.StoreSalesController">
    <children>
       <Pane prefHeight="720.0" prefWidth="0.0" style="-fx-background-color: white;" />
       <TableView fx:id="products_to_sell_table" layoutX="50.0" layoutY="38.0" onMouseClicked="#rowSelected" prefHeight="477.0" prefWidth="296.0">
@@ -34,5 +34,6 @@
          </font>
       </Label>
       <Button fx:id="sell_button" layoutX="1116.0" layoutY="616.0" mnemonicParsing="false" onAction="#sellButtonClicked" prefHeight="51.0" prefWidth="123.0" text="Sell " />
+      <Button layoutX="50.0" layoutY="629.0" mnemonicParsing="false" onAction="#backButtonClicked" prefHeight="31.0" prefWidth="169.0" text="Back" />
    </children>
 </AnchorPane>

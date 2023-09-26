@@ -8,20 +8,20 @@ import java.sql.SQLException;
 
 public class ProductManager {
 
-    //adds a product object to the database
-//    public static void addProduct(Product product) throws SQLException {
-//
-//        String product_name = product.getProductName();
-//        String store_id = product.getStoreID();
-//        String fair_id = product.getFairID();
-//        double selling_price = product.getSellingPrice();
-//        double cost_price = product.getCostPrice();
-//        String description = product.getDescription();
-//        String category = product.getProductCategory();
-//
-//        Database.update("INSERT INTO tblproducts (product_name, store, fair, selling_price, cost_price, description, category) VALUES ('" + product_name + "', '" + store_name + "', '" + fair_name + "', '" + selling_price + "', '" + cost_price + "', '" + description + "', '" + category + "')");
-//
-//    }
+    //add a product to the database
+    public static void addProduct(String product_name,String store_id,Double selling_price, Double cost_price,String description,String category,int quantity) throws SQLException {
+
+        String statement = "INSERT INTO tblproducts (ProductName,StoreID,SellingPrice,CostPrice,Description,Category,Quantity) VALUES ('" + product_name + "','" + store_id + "'," + selling_price + "," + cost_price + ",'" + description + "','" + category + "'," + quantity + ");";
+        Database.update(statement);
+
+    }
+
+    public static void deleteProduct(Product p) throws SQLException {
+
+        String statement = "DELETE FROM tblproducts WHERE ProductID = " + p.getProductID();
+        Database.update(statement);
+
+    }
 
     //deletes a product object from the database
 

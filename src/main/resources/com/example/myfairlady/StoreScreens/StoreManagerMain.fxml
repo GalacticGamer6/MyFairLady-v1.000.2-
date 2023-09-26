@@ -8,26 +8,42 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="960.0" styleClass="circular-image" stylesheets="@../styles.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.myfairlady.SceneController.StoreControllers.StoreManagerController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" styleClass="circular-image" stylesheets="@../styles.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.myfairlady.SceneController.StoreControllers.StoreManagerController">
    <children>
-      <Pane prefHeight="540.0" prefWidth="255.0" style="-fx-background-color: #984063;">
+      <Pane prefHeight="720.0" prefWidth="350.0" style="-fx-background-color: #984063;">
          <children>
-            <Pane layoutY="400.0" prefHeight="140.0" prefWidth="255.0" style="-fx-background-color: #984063;">
-               <children>
-                  <Label fx:id="clock_label" alignment="CENTER" contentDisplay="CENTER" ellipsisString="" layoutX="27.0" layoutY="90.0" prefHeight="23.0" prefWidth="201.0" styleClass="text" stylesheets="@StoreStyles.css" text="(Clock goes here)" />
-               </children></Pane>
-            <Circle fill="WHITE" layoutX="128.0" layoutY="104.0" radius="73.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
-         </children>
-      </Pane>
-      <Pane layoutX="255.0" prefHeight="540.0" prefWidth="706.0" style="-fx-background-color: #41436A;">
-         <children>
-            <VBox layoutX="71.0" layoutY="42.0" prefHeight="451.0" prefWidth="564.0">
+            <Label fx:id="clock_label" alignment="CENTER" contentDisplay="CENTER" ellipsisString="" layoutX="75.0" layoutY="639.0" prefHeight="23.0" prefWidth="201.0" styleClass="text" stylesheets="@StoreStyles.css" text="(Clock goes here)" />
+            <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="25.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../Ferris%20Wheel%20256x.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="141.0" layoutY="64.0" prefHeight="45.0" prefWidth="160.0" text="MyFairLady" textFill="#fe9677">
+               <font>
+                  <Font name="Century Gothic Bold" size="25.0" />
+               </font>
+            </Label>
+            <VBox layoutX="25.0" layoutY="160.0" prefHeight="400.0" prefWidth="300.0">
                <children>
                   <Separator prefWidth="200.0" />
-                  <Button fx:id="products_list_button" alignment="BOTTOM_LEFT" mnemonicParsing="false" onAction="#switchToStoreProductListScreen" prefHeight="95.0" prefWidth="564.0" stylesheets="@../styles.css" text="Products List" textFill="WHITE">
+                  <Label fx:id="motivational_quote_label" alignment="CENTER" contentDisplay="TEXT_ONLY" prefHeight="400.0" prefWidth="300.0" text="motivation" textAlignment="JUSTIFY" textFill="#fe9677" wrapText="true">
+                     <font>
+                        <Font name="Century Gothic Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Separator prefWidth="200.0" />
+               </children>
+            </VBox>
+         </children>
+      </Pane>
+      <Pane layoutX="350.0" prefHeight="720.0" prefWidth="930.0" style="-fx-background-color: #41436A;">
+         <children>
+            <VBox layoutX="73.0" layoutY="85.0" prefHeight="550.0" prefWidth="800.0">
+               <children>
+                  <Separator prefWidth="200.0" />
+                  <Button fx:id="products_list_button" alignment="BOTTOM_LEFT" mnemonicParsing="false" onAction="#switchToStoreProductListScreen" prefHeight="110.0" prefWidth="800.0" stylesheets="@../styles.css" text="Products List" textFill="WHITE">
                      <graphic>
                         <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" scaleX="0.8" scaleY="0.8">
                            <image>
@@ -39,7 +55,7 @@
                         <Font name="Century Gothic Bold" size="18.0" />
                      </font>
                   </Button>
-                  <Button alignment="BOTTOM_LEFT" mnemonicParsing="false" onAction="#switchToSalesScreen" prefHeight="95.0" prefWidth="564.0" stylesheets="@../styles.css" text="Sales" textFill="WHITE">
+                  <Button alignment="BOTTOM_LEFT" mnemonicParsing="false" onAction="#switchToSalesScreen" prefHeight="110.0" prefWidth="800.0" stylesheets="@../styles.css" text="Sales" textFill="WHITE" wrapText="true">
                      <graphic>
                         <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" scaleX="0.8" scaleY="0.8">
                            <image>
@@ -51,7 +67,7 @@
                         <Font name="Century Gothic Bold" size="18.0" />
                      </font>
                   </Button>
-                  <Button alignment="BOTTOM_LEFT" mnemonicParsing="false" prefHeight="95.0" prefWidth="564.0" stylesheets="@../styles.css" text="Stats" textFill="WHITE">
+                  <Button alignment="BOTTOM_LEFT" mnemonicParsing="false" prefHeight="110.0" prefWidth="800.0" stylesheets="@../styles.css" text="Stats" textFill="WHITE">
                      <graphic>
                         <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" scaleX="0.8" scaleY="0.8">
                            <image>
@@ -63,7 +79,7 @@
                         <Font name="Century Gothic Bold" size="18.0" />
                      </font>
                   </Button>
-                  <Button alignment="BOTTOM_LEFT" mnemonicParsing="false" prefHeight="95.0" prefWidth="564.0" stylesheets="@../styles.css" text="Alerts" textFill="WHITE">
+                  <Button alignment="BOTTOM_LEFT" mnemonicParsing="false" prefHeight="110.0" prefWidth="800.0" stylesheets="@../styles.css" text="Alerts" textFill="WHITE">
                      <graphic>
                         <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" scaleX="0.8" scaleY="0.8">
                            <image>
@@ -75,7 +91,7 @@
                         <Font name="Century Gothic Bold" size="18.0" />
                      </font>
                   </Button>
-                  <Button alignment="BOTTOM_LEFT" mnemonicParsing="false" prefHeight="95.0" prefWidth="564.0" stylesheets="@../styles.css" text="Store Settings" textFill="WHITE">
+                  <Button alignment="BOTTOM_LEFT" mnemonicParsing="false" onAction="#switchToStoreSettingsScreen" prefHeight="110.0" prefWidth="800.0" stylesheets="@../styles.css" text="Store Settings" textFill="WHITE">
                      <graphic>
                         <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" scaleX="0.8" scaleY="0.8">
                            <image>

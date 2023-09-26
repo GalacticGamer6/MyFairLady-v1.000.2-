@@ -3,6 +3,7 @@ package com.example.myfairlady;
 import com.example.myfairlady.DataTypes.Fair;
 import com.example.myfairlady.DataTypes.Store;
 import com.example.myfairlady.DataTypes.User;
+import com.example.myfairlady.Managers.StoreManager;
 import com.example.myfairlady.UtilityClasses.Database;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -10,6 +11,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.sql.SQLException;
 
 public class App extends Application{
@@ -23,11 +25,10 @@ public class App extends Application{
 
 
 
-    public static void main(String[] args) throws SQLException, ClassNotFoundException, InterruptedException {
+    public static void main(String[] args) throws SQLException, ClassNotFoundException, InterruptedException, IOException {
 
 
         Database.initDB();
-
         launch();
 
 

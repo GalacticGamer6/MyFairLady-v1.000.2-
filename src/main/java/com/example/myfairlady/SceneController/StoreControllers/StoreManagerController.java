@@ -3,7 +3,9 @@ package com.example.myfairlady.SceneController.StoreControllers;
 import com.example.myfairlady.App;
 import com.example.myfairlady.DataTypes.Store;
 import com.example.myfairlady.DataTypes.User;
+import com.example.myfairlady.Managers.StoreManager;
 import com.example.myfairlady.Managers.UserManager;
+import com.example.myfairlady.UtilityClasses.ChatGPT;
 import com.example.myfairlady.UtilityClasses.ScreenGeneral;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -35,6 +37,8 @@ public class StoreManagerController implements Initializable{
 
     public static Store current_store;
 
+    @FXML
+    private Label motivational_quote_label;
     @FXML
     private Button products_list_button;
 
@@ -112,20 +116,10 @@ public class StoreManagerController implements Initializable{
         stage.show();
     }
 
-    public void switchToStoreSettingsScreen(ActionEvent e) throws IOException {
+    public void switchToStoreSettingsScreen() throws IOException {
 
-        //create a url from the file path
-        File fxml_file = new File("src/main/resources/com/example/myfairlady/StoreScreens/StoreSettingsScreen.fxml");
-        URL url = fxml_file.toURI().toURL();
+        ScreenGeneral.switchScreen(ScreenGeneral.StoreSettingsScreenLocation);
 
-        //load the url into the fxml loader
-        FXMLLoader loader = new FXMLLoader(url);
-        Parent root = loader.load();
-        Scene scene = new Scene(root);
-
-        Stage stage = (Stage) ((Node)e.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
     }
 
 
@@ -148,7 +142,11 @@ public class StoreManagerController implements Initializable{
 
         timer.scheduleAtFixedRate(task, 0, 1000);
 
-
+        try {
+            motivational_quote_label.setText(StoreManager.generateMotivationalquote());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
     }
 

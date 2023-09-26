@@ -136,18 +136,20 @@ public class AdminAccountsController implements Initializable {
         String password = password_textfield.getText();
         String account_level = account_level_combo_box.getValue();
 
-        if(UserManager.checkIfUserExists(username,password,account_level)){
+        if(UserManager.userExists(username,password)){
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
             alert.setHeaderText("User already exists");
             alert.setContentText("Please enter a different username and password");
             alert.showAndWait();
+
             return;
         }
-        else {
-
-            UserManager.addUser(username, password, account_level);
+        else{
+            UserManager.addUser(username,password,account_level);
+            intializeUserTable(UserManager.getAdminAndFairUsers());
         }
+
         intializeUserTable(UserManager.getAdminAndFairUsers());
     }
 
