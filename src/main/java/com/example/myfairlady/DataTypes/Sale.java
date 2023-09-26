@@ -1,33 +1,29 @@
 package com.example.myfairlady.DataTypes;
 
-import java.util.Date;
+import java.sql.Date;
+import java.time.LocalDate;
 
-public class Sale {
+public class Sale{
 
-    private Product item_sold;
-    private Date date_of_sale;
-    private Store store;
-    private Fair fair;
+    private String sale_id;
+    private String product_id;
+    private LocalDate date;
 
-
-    public Sale(Product item_sold, Date date_of_sale, Store store,Fair fair) {
-        this.item_sold = item_sold;
-        this.date_of_sale = date_of_sale;
-        this.store = store;
-        this.fair = fair;
+    public Sale(String sale_id, String product_id, LocalDate date){
+        this.sale_id = sale_id;
+        this.product_id = product_id;
+        this.date = date;
     }
 
-    public Product getItem_sold() {
-        return item_sold;
+    public String getSaleID(){
+        return sale_id;
+    }
+    public String getProductID(){
+        return product_id;
+    }
+    public LocalDate getDate(){
+        return date;
     }
 
-    public Date getDate_of_sale() {
-        return date_of_sale;
-    }
 
-    public Store getStore() {
-        return store;
-    }
-
-    public Fair getFair() { return fair; }
 }

@@ -57,6 +57,13 @@ public class ProductManager {
         return rs;
     }
 
+    public static void updateProductQuantity(Product p, int updated_quantity) throws SQLException {
+
+        String statement = "UPDATE tblproducts SET quantity = " + updated_quantity + " WHERE ProductID = " + p.getProductID();
+        Database.update(statement);
+
+    }
+
 
 
 

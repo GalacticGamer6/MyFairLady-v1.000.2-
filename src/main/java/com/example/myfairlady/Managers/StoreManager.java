@@ -33,6 +33,11 @@ public class StoreManager {
         return s;
     }
 
+    public static void updateStoreProfit(Store s, Double profit) throws SQLException {
+        String statement = "UPDATE tblstores SET Profit = " + (s.getProfit() + profit) + " WHERE StoreID = '" + s.getStoreID() + "'";
+        Database.update(statement);
+    }
+
 
 
 

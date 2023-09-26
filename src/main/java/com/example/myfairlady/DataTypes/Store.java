@@ -47,6 +47,11 @@ public class Store {
         return profit;
     }
 
+    //again, we'll need this for the sales later
+    public void setStoreProfit(Double profit) {
+        this.profit = profit;
+    }
+
     //create a toString method for this class
     @Override
     public String toString() {
