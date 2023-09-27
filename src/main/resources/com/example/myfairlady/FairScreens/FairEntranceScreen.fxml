@@ -27,10 +27,6 @@
                      <font>
                         <Font name="Century Gothic Bold" size="18.0" />
                      </font></Button>
-                  <Button mnemonicParsing="false" onAction="#StatsButtonIsClicked" prefHeight="80.0" prefWidth="350.0" stylesheets="@FairStyles.css" text="Stats" textFill="#435334">
-                     <font>
-                        <Font name="Century Gothic Bold" size="18.0" />
-                     </font></Button>
                   <Button mnemonicParsing="false" onAction="#SettingsButtonIsClicked" prefHeight="80.0" prefWidth="350.0" stylesheets="@FairStyles.css" text="Settings" textFill="#435334">
                      <font>
                         <Font name="Century Gothic Bold" size="18.0" />
@@ -47,6 +43,15 @@
                   <Font name="Century Gothic Bold" size="24.0" />
                </font>
             </Label>
+            <Button layoutX="23.0" layoutY="624.0" mnemonicParsing="false" onAction="#LogoutButtonClicked" prefHeight="70.0" prefWidth="70.0" stylesheets="@../styles.css">
+               <graphic>
+                  <ImageView fitHeight="60.0" fitWidth="60.0" onDragDetected="#LogoutButtonClicked" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../back%20icon.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
          </children>
       </Pane>
       <Label layoutX="379.0" layoutY="30.0" prefHeight="31.0" prefWidth="289.0" text="Entrance Manager" textFill="#faf1e4">

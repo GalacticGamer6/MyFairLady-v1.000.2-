@@ -4,18 +4,34 @@ import com.example.myfairlady.DataTypes.Fair;
 import com.example.myfairlady.DataTypes.Store;
 import com.example.myfairlady.Managers.FairManager;
 import com.example.myfairlady.Managers.StoreManager;
+import com.example.myfairlady.Managers.UserManager;
 import com.example.myfairlady.UtilityClasses.ScreenGeneral;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.io.IOException;
+import java.net.URL;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ResourceBundle;
 
-public class FairStoresScreenController {
+public class FairStoresScreenController implements Initializable {
 
-
+    @FXML
+    private ComboBox <String> store_owners_combo_box;
+    @FXML
+    private ComboBox <String> category_combo_box;
+    @FXML
+    private ComboBox <String> status_combo_box;
+    @FXML
+    private TextField store_name_textfield;
 
     @FXML
     private TableView<Store> stores_table;
@@ -33,11 +49,6 @@ public class FairStoresScreenController {
         private TableColumn<Store, Double> profit_column;
 
 
-    public void StatsButtonIsClicked() throws IOException {
-
-        ScreenGeneral.switchScreen(ScreenGeneral.FairStatsScreenLocation);
-
-    }
 
     public void SettingsButtonIsClicked() throws IOException {
 
@@ -63,5 +74,38 @@ public class FairStoresScreenController {
 
 //        ResultSet rs = StoreManager.getStores(currentFair.getFairID());
 
+    }
+
+    public void LogoutButtonClicked() throws IOException {
+
+        ScreenGeneral.switchScreen(ScreenGeneral.LoginScreenLocation);
+
+    }
+
+    public void initalizeStoreOwnersComboBox() throws SQLException {
+
+        ObservableList <String> storeOwners = FXCollections.observableArrayList();
+
+        ResultSet rs = UserManager.getStoreOwnersWithoutAStore();
+
+        while(rs.next()){
+
+            storeOwners.add(rs.getString("Username"));
+
+        }
+
+        store_owners_combo_box.setItems(storeOwners);
+
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        try {
+            initializeStoresTable();
+            initalizeStoreOwnersComboBox();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }

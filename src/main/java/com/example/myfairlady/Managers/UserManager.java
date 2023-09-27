@@ -14,10 +14,10 @@ public class UserManager {
     public static boolean userExists(String username,String password) throws SQLException {
 
             String query = "Select * from tblusers where Username = '" + username + "' and Password = '" + password + "';";
-            System.out.println(query);
+            ResultSet rs = Database.query(query);
 
             //check if the resultset is empty
-            if(Database.query(query).next()){
+            if(rs.next()){
                 return true;
             }
             else{
@@ -113,5 +113,11 @@ public class UserManager {
         System.out.println(query);
         return Database.query(query);
 
+    }
+
+    public static ResultSet getStoreOwnersWithoutAStore() throws SQLException {
+
+        String statement = "Select Username from  tblusers and tblstores where tblusers.UserID != tblstores.UserID AND AccountLevel = Store Owner;";
+        return Database.query(statement);
     }
 }

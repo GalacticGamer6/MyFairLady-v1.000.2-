@@ -57,6 +57,9 @@ public String getFairID() {
                 ", fair_profit=" + fair_profit +
                 '}';
     }
+    public void setEntrance_fee(double entrance_fee) {
+        this.entrance_fee = entrance_fee;
+    }
 
 
 }

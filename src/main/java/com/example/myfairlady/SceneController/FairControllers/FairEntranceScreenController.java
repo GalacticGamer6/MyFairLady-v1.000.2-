@@ -3,6 +3,7 @@ package com.example.myfairlady.SceneController.FairControllers;
 import com.example.myfairlady.App;
 import com.example.myfairlady.DataTypes.Ticket;
 import com.example.myfairlady.Managers.TicketManager;
+import com.example.myfairlady.UtilityClasses.Database;
 import com.example.myfairlady.UtilityClasses.ScreenGeneral;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -33,7 +34,7 @@ public class FairEntranceScreenController implements Initializable {
     @FXML
     private TableColumn <Ticket, Integer> total_cost_column;
     @FXML
-    private TableColumn <Ticket, Integer> date_time_column;
+    private TableColumn <Ticket, String> date_time_column;
 
 
 
@@ -66,8 +67,10 @@ public class FairEntranceScreenController implements Initializable {
             String FairID = rs.getString("FairID");
             Double total_cost = rs.getDouble("TotalCost");
             LocalDateTime date_time_sold = rs.getTimestamp("DateTimeSold").toLocalDateTime();
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+            String formatted_date_time_sold = date_time_sold.format(formatter);
 
-            Ticket t = new Ticket(ticket_sale_number, num_tickets_to_sell, FairID, total_cost, date_time_sold);
+            Ticket t = new Ticket(ticket_sale_number, num_tickets_to_sell, FairID, total_cost, formatted_date_time_sold);
             System.out.println(t.toString());
             tickets.add(t);
         }
@@ -77,19 +80,20 @@ public class FairEntranceScreenController implements Initializable {
 
     public void initializeNumTicketsToSellSpinner(){
 
-        SpinnerValueFactory<Integer> valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 1000000, 0, 1);
+        SpinnerValueFactory<Integer> valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(1 ,1000000, 1, 1);
         num_tickets_to_sell_spinner.setValueFactory(valueFactory);
 
     }
 
     public void sellTicket() throws SQLException {
+
         int num_tickets_to_sell = num_tickets_to_sell_spinner.getValue();
         String current_fair_id = App.current_fair.getFairID();
         double total_cost = num_tickets_to_sell * App.current_fair.getEntranceFee();
         LocalDateTime date_time_sold = LocalDateTime.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         String formatted_date_time_sold = date_time_sold.format(formatter);
-
+        System.out.println(formatted_date_time_sold);
 
         TicketManager.sellTickets(num_tickets_to_sell, current_fair_id, total_cost, formatted_date_time_sold);
         num_tickets_to_sell_spinner.getValueFactory().setValue(0);
@@ -112,15 +116,16 @@ public class FairEntranceScreenController implements Initializable {
 
     }
 
-    public void StatsButtonIsClicked() throws IOException {
-
-        ScreenGeneral.switchScreen(ScreenGeneral.FairStatsScreenLocation);
-
-    }
 
     public void SettingsButtonIsClicked() throws IOException {
 
         ScreenGeneral.switchScreen(ScreenGeneral.FairSettingsScreenLocation);
+
+    }
+
+    public void LogoutButtonClicked() throws IOException {
+
+        ScreenGeneral.switchScreen(ScreenGeneral.LoginScreenLocation);
 
     }
 

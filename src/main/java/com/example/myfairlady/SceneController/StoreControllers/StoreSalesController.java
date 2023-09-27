@@ -2,7 +2,6 @@ package com.example.myfairlady.SceneController.StoreControllers;
 
 import com.example.myfairlady.App;
 import com.example.myfairlady.DataTypes.Product;
-import com.example.myfairlady.DataTypes.Sale;
 import com.example.myfairlady.Managers.ProductManager;
 import com.example.myfairlady.Managers.SaleManager;
 import com.example.myfairlady.Managers.StoreManager;
@@ -102,7 +101,7 @@ public class StoreSalesController implements Initializable {
         System.out.println("We set cell value factories");
 
         sales_table.setItems(products);
-        total_cost_label.setText(updateTotalCost() + "");
+        total_cost_label.setText(countTotalSellingPrice() + "");
     }
 
     //gets the selected product in the row, removes it from the table and updates the price
@@ -110,10 +109,20 @@ public class StoreSalesController implements Initializable {
         Product selected_product = sales_table.getSelectionModel().getSelectedItem();
         sales_table.getItems().remove(selected_product);
         initalizeSalesTable();
-        total_cost_label.setText(updateTotalCost() + "");
+        total_cost_label.setText(countTotalSellingPrice() + "");
     }
 
-    public double updateTotalCost(){
+    public double countTotalSellingPrice(){
+
+        Double cost = 0.0;
+
+        for(int i = 0 ; i < sales_table.getItems().size(); i++){
+            cost += sales_table.getItems().get(i).getSellingPrice();
+        }
+        return cost;
+    }
+
+    public double countTotalCostPrice(){
 
         Double cost = 0.0;
 
@@ -135,13 +144,15 @@ public class StoreSalesController implements Initializable {
 
         }
         //then we update the profit of the store
-        StoreManager.updateStoreProfit(App.current_store,updateTotalCost());
+
+        Double profit = countTotalSellingPrice() - countTotalCostPrice();
+        StoreManager.updateStoreProfit(App.current_store, profit);
 
         //then we clear the table
         sales_table.getItems().clear();
 
         //then we update the total cost
-        total_cost_label.setText(updateTotalCost() + "");
+        total_cost_label.setText(countTotalSellingPrice() + "");
 
 
     }

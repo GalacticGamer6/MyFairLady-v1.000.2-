@@ -88,7 +88,22 @@ public class FairManager {
             String statement = "Update tblfairs set TotalProfit = TotalProfit + " + increased_amount + " where FairID = '" + fair_id + "';";
             Database.update(statement);
         }
+
+        public static void updateFairName(String Fairname, String FairID) throws SQLException {
+            String statement = "Update tblfairs set FairName = '" + Fairname + "' where FairID = '" + FairID + "';";
+            Database.update(statement);
+        }
+
+    public static void updateEntranceFee(String fairID, Double value) {
+
+        String statement = "Update tblfairs set EntranceFee = " + value + " where FairID = '" + fairID + "';";
+        try {
+            Database.update(statement);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
     }
+}
 
 
 

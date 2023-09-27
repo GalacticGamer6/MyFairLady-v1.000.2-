@@ -16,7 +16,8 @@ public class TicketManager {
 
     public static void sellTickets(int tickts_to_sell, String fair_id, double total_cost, String formatteddateTime) throws SQLException {
 
-        String statement = "INSERT INTO tbltickets (NumTicketsToSell, FairID, TotalCost, DateTimeSold) VALUES (" + tickts_to_sell + ", " + fair_id + ", " + total_cost + ", " + formatteddateTime + ")";
+        String statement = "INSERT INTO tbltickets (NumTicketsToSell, FairID, TotalCost, DateTimeSold) VALUES (" + tickts_to_sell + ", " + fair_id + ", " + total_cost + ", '" + formatteddateTime + "');";
+        System.out.println(statement);
         Database.update(statement);
 
         //then we need to increase the fairs profit by the total cost of the tickets sold

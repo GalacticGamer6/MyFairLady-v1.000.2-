@@ -37,8 +37,11 @@ public class StoreManager {
     }
 
     public static void updateStoreProfit(Store s, Double profit) throws SQLException {
-        String statement = "UPDATE tblstores SET Profit = " + (s.getProfit() + profit) + " WHERE StoreID = '" + s.getStoreID() + "'";
+        String statement = "UPDATE tblstores SET Profit = Profit" + (profit) + " WHERE StoreID = '" + s.getStoreID() + "'";
         Database.update(statement);
+
+        //we then need to increase the fair profit
+        String statment = "UPDATE tblfairs SET TotalProfit = TotalProfit" + (profit) + " WHERE FairID = '" + s.getFairID() + "'";
     }
 
     public static String generateMotivationalquote() throws IOException {
@@ -82,7 +85,7 @@ public class StoreManager {
 
     }
 
-    public static void DeleteStore(int storeID){
+    public static void DeleteStore(String storeID){
 
 
 

@@ -8,9 +8,9 @@ public class Ticket {
     private int num_tickets_to_sell;
     private String fair_id;
     private Double total_cost;
-    private LocalDateTime date_time_sold;
+    private String date_time_sold;
 
-    public Ticket(String ticket_sale_number, int num_tickets_to_sell, String fair_id, Double total_cost, LocalDateTime date_time_sold) {
+    public Ticket(String ticket_sale_number, int num_tickets_to_sell, String fair_id, Double total_cost,String date_time_sold) {
         this.ticket_sale_number = ticket_sale_number;
         this.num_tickets_to_sell = num_tickets_to_sell;
         this.fair_id = fair_id;
@@ -34,7 +34,7 @@ public class Ticket {
         return total_cost;
     }
 
-    public LocalDateTime getDateTimeSold() {
+    public String getDateTimeSold() {
         return date_time_sold;
     }
 

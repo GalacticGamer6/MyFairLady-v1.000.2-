@@ -29,10 +29,8 @@ public class ScreenGeneral {
     public static String StoreSettingsScreenLocation = "src/main/resources/com/example/myfairlady/StoreScreens/StoreSettingsScreen.fxml";
 
     //String path fir all the fair related fxml files
-    public static String FairAnnouncementsScreenLocation = "src/main/resources/com/example/myfairlady/FairScreens/FairAnnouncementsScreen.fxml";
     public static String FairEntranceScreenLocation = "src/main/resources/com/example/myfairlady/FairScreens/FairEntranceScreen.fxml";
     public static String FairSettingsScreenLocation = "src/main/resources/com/example/myfairlady/FairScreens/FairSettingsScreen.fxml";
-    public static String FairStatsScreenLocation = "src/main/resources/com/example/myfairlady/FairScreens/FairStatsScreen.fxml";
     public static String FairStoresScreenLocation = "src/main/resources/com/example/myfairlady/FairScreens/FairStoresScreen.fxml";
 
 
