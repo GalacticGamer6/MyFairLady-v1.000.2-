@@ -12,8 +12,8 @@ import java.time.LocalDate;
 public class SaleManager {
 
     //gonna have to join tables to keep things clean
-    public ResultSet getSalesByStore(String store_id) throws SQLException {
-        String statement = "SELECT * FROM tblsales and tblproducts WHERE tblsales.product_id = tblproducts.product_id AND tblproducts.store_id = " + store_id;
+    public static ResultSet getSalesByStore(String store_id) throws SQLException {
+        String statement = "SELECT * FROM tblsales,tblproducts WHERE tblsales.ProductID = tblproducts.ProductID AND tblproducts.StoreID= " + store_id;
         ResultSet rs = Database.query(statement);
         return rs;
     }
@@ -46,6 +46,26 @@ public class SaleManager {
             p.setQuantity(quantity);
             ProductManager.updateProductQuantity(p, quantity);
         }
+
+    }
+
+    public static ResultSet getDateOfMostSalesByStore(String storeID) throws SQLException {
+
+        String statement = "SELECT DateSold, COUNT(*) FROM tblsales WHERE ProductID IN (SELECT ProductID FROM tblproducts WHERE StoreID = " + storeID + ") GROUP BY DateSold ORDER BY COUNT(*) DESC LIMIT 1";
+        ResultSet rs = Database.query(statement);
+        return rs;
+    }
+
+    public static ResultSet getMostPopularProductOfAStore(String storeID) throws SQLException {
+
+        String statement = "SELECT ProductName ,count(*) FROM neeraavrDB.tblsales,neeraavrDB.tblproducts WHERE tblsales.ProductID = tblproducts.ProductID AND tblproducts.StoreID = " + storeID + " GROUP BY tblsales.ProductID ORDER BY count(*) DESC LIMIT 1;";
+        return Database.query(statement);
+    }
+
+    public static ResultSet getNumberOfSalesOfAStore(String storeID) throws SQLException {
+
+        String statement = "SELECT count(*) FROM neeraavrDB.tblsales,neeraavrDB.tblproducts Where tblsales.ProductID = tblproducts.ProductID AND tblproducts.StoreID = " + storeID + ";";
+        return Database.query(statement);
 
     }
 

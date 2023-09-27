@@ -64,7 +64,8 @@ public class ScreenGeneral {
         URL url = fxml_file.toURI().toURL();
         System.out.println(url);
         //load the url into the fxml loader
-        FXMLLoader loader = new FXMLLoader(url);Parent root = loader.load();
+        FXMLLoader loader = new FXMLLoader(url);
+        Parent root = loader.load();
         Scene scene = new Scene(root);
 
 

@@ -46,9 +46,11 @@ public String getFairID() {
         return fair_profit;
     }
 
+//make a toString method for the fair class
     @Override
     public String toString() {
         return "Fair{" +
+                "fair_id='" + fair_id + '\'' +
                 ", fair_name='" + fair_name + '\'' +
                 ", fair_owner_id='" + fair_owner_id + '\'' +
                 ", start_date=" + start_date +

@@ -59,24 +59,8 @@ public class StoreManagerController implements Initializable{
     private Label clock_label;
 
 
-    public void ButtoSaleButtonPressed() throws IOException {
-        System.out.println("Sale button pressed");
-        switchToSalesScreen();
-    }
-
     public void switchToStoreProductListScreen() throws IOException {
-
-        //create a url from the file path
-        File fxml_file = new File("src/main/resources/com/example/myfairlady/StoreScreens/StoreProductListScreen.fxml");
-        URL url = fxml_file.toURI().toURL();
-
-        //load the url into the fxml loader
-        FXMLLoader loader = new FXMLLoader(url);
-        Parent root = loader.load();
-        Scene scene = new Scene(root);
-
-        App.getPrimaryStage().setScene(scene);
-        App.getPrimaryStage().show();
+        ScreenGeneral.switchScreen(ScreenGeneral.StoreProductsListScreenLocation);
     }
 
     public void switchToSalesScreen() throws IOException {
@@ -84,37 +68,12 @@ public class StoreManagerController implements Initializable{
         ScreenGeneral.switchScreen(ScreenGeneral.StoreSalesScreenLocation);
     }
 
-    public void switchToStoreStatsScreen(ActionEvent e) throws IOException {
+    public void switchToStoreStatsScreen() throws IOException {
 
-        //create a url from the file path
-        File fxml_file = new File("src/main/resources/com/example/myfairlady/StoreScreens/StoreStatsScreen.fxml");
-        URL url = fxml_file.toURI().toURL();
-
-        //load the url into the fxml loader
-        FXMLLoader loader = new FXMLLoader(url);
-        Parent root = loader.load();
-        Scene scene = new Scene(root);
-
-        Stage stage = (Stage) ((Node)e.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
+    ScreenGeneral.switchScreen(ScreenGeneral.StoreStatsScreenLocation);
     }
 
-    public void switchToStoreAlertsScreen(ActionEvent e) throws IOException {
 
-        //create a url from the file path
-        File fxml_file = new File("src/main/resources/com/example/myfairlady/StoreScreens/StoreAlertsScreen.fxml");
-        URL url = fxml_file.toURI().toURL();
-
-        //load the url into the fxml loader
-        FXMLLoader loader = new FXMLLoader(url);
-        Parent root = loader.load();
-        Scene scene = new Scene(root);
-
-        Stage stage = (Stage) ((Node)e.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
-    }
 
     public void switchToStoreSettingsScreen() throws IOException {
 

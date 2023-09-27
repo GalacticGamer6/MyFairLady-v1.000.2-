@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #9EB384;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.myfairlady.SceneController.FairControllers.FairSettingsScreenController">
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #9EB384;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.myfairlady.SceneController.FairControllers.FairStoresScreenController">
     <children>
         <Pane prefHeight="720.0" prefWidth="350.0" style="-fx-background-color: #435334;">
             <children>
@@ -25,11 +25,11 @@
                                 <Font name="Century Gothic Bold" size="18.0" />
                             </font>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#StoreManagementButtonIsClicked" prefHeight="80.0" prefWidth="350.0" stylesheets="@FairStyles.css" text="Store Management" textFill="#435334">
+                        <Button mnemonicParsing="false" prefHeight="80.0" prefWidth="350.0" stylesheets="@FairStyles.css" text="Store Management" textFill="#435334">
                             <font>
                                 <Font name="Century Gothic Bold" size="18.0" />
                             </font></Button>
-                        <Button mnemonicParsing="false" onAction="#SettingsButtonIsClicked" prefHeight="80.0" prefWidth="350.0" stylesheets="@FairStyles.css" text="Settings" textFill="#435334">
+                        <Button mnemonicParsing="false" onAction="#SwitchToFairSettingsScreen" prefHeight="80.0" prefWidth="350.0" stylesheets="@FairStyles.css" text="Settings" textFill="#435334">
                             <font>
                                 <Font name="Century Gothic Bold" size="18.0" />
                             </font></Button>
@@ -61,7 +61,7 @@
             <Font name="Century Gothic Bold" size="24.0" />
          </font>
       </Label>
-      <TableView fx:id="stores_table" layoutX="385.0" layoutY="68.0" prefHeight="280.0" prefWidth="867.0">
+      <TableView fx:id="stores_table" layoutX="385.0" layoutY="68.0" onMouseClicked="#DeleteStore" prefHeight="280.0" prefWidth="867.0">
         <columns>
           <TableColumn fx:id="store_id_column" prefWidth="56.0" text="StoreID" />
           <TableColumn fx:id="store_name_column" prefWidth="354.0" text="Store Name" />
@@ -78,14 +78,15 @@
          </font>
       </Label>
       <TextField fx:id="store_name_field" layoutX="516.0" layoutY="453.0" />
-      <ComboBox fx:id="store_owner_combo_box" layoutX="516.0" layoutY="502.0" prefWidth="150.0" />
-      <ComboBox fx:id="category_combo_box" layoutX="516.0" layoutY="551.0" prefWidth="150.0" />
-      <ComboBox fx:id="status_combo_box" layoutX="516.0" layoutY="600.0" prefWidth="150.0" />
+      <ComboBox fx:id="category_combo_box" layoutX="516.0" layoutY="494.0" prefWidth="150.0" />
+      <ComboBox fx:id="status_combo_box" layoutX="516.0" layoutY="535.0" prefWidth="150.0" />
       <Label layoutX="385.0" layoutY="453.0" prefHeight="25.0" prefWidth="117.0" text="Store Name" />
-      <Label layoutX="385.0" layoutY="502.0" prefHeight="25.0" prefWidth="117.0" text="Store Owner" />
-      <Label layoutX="702.0" layoutY="502.0" prefHeight="25.0" prefWidth="575.0" text="*If you are not seeing any store owners, ensure that you have created store accounts in the settings tab" />
-      <Label layoutX="385.0" layoutY="551.0" prefHeight="25.0" prefWidth="117.0" text="Category" />
-      <Label layoutX="385.0" layoutY="600.0" prefHeight="25.0" prefWidth="117.0" text="Category" />
-      <Button layoutX="582.0" layoutY="659.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="84.0" text="Add" />
+      <Label layoutX="807.0" layoutY="453.0" prefHeight="25.0" prefWidth="117.0" text="Owner Username" />
+      <Label layoutX="385.0" layoutY="494.0" prefHeight="25.0" prefWidth="117.0" text="Category" />
+      <Label layoutX="385.0" layoutY="535.0" prefHeight="25.0" prefWidth="117.0" text="status" />
+      <Button layoutX="765.0" layoutY="615.0" mnemonicParsing="false" onAction="#addStore" prefHeight="25.0" prefWidth="84.0" text="Add" />
+      <TextField fx:id="username_field" layoutX="945.0" layoutY="453.0" />
+      <TextField fx:id="password_field" layoutX="945.0" layoutY="494.0" />
+      <Label layoutX="807.0" layoutY="494.0" prefHeight="25.0" prefWidth="117.0" text="Owner Password" />
     </children>
 </AnchorPane>

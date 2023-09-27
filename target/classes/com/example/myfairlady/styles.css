@@ -14,5 +14,5 @@
 .separator .line {
     -fx-background-color: #fe9677;
     -fx-pref-height: 5;
-    -fx-border-color: null ;
+    -fx-border-color: #fe9677 ;
 }

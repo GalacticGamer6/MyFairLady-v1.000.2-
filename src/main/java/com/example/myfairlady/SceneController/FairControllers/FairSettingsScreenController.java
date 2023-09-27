@@ -19,6 +19,7 @@ import java.util.ResourceBundle;
 
 public class FairSettingsScreenController implements Initializable {
 
+    public TableColumn profit_column;
     @FXML
     private TextField username_field;
     @FXML
@@ -71,28 +72,45 @@ public class FairSettingsScreenController implements Initializable {
     }
 
     public void changeFairName() throws SQLException {
-
-        FairManager.updateFairName(fair_name_field.getText(),App.current_fair.getFairID());
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Success");
-        alert.setHeaderText("Success");
-        alert.setContentText("Fair name changed successfully");
-        alert.showAndWait();
-
+        //check if empty first
+        if(fair_name_field.getText().isEmpty()){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Error");
+            alert.setContentText("Please fill in the fair name");
+            alert.showAndWait();
+        }
+        else{
+            //now we change the fair name
+            FairManager.updateFairName(fair_name_field.getText(),App.current_fair.getFairID());
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Success");
+            alert.setHeaderText("Success");
+            alert.setContentText("Fair name changed successfully");
+            alert.showAndWait();
+        }
 
     }
 
     public void changeEntranceFee() throws SQLException, ClassNotFoundException {
+        //check if its empty first
+        if(entrance_fee_spinner.getValue() == null){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Error");
+            alert.setContentText("Please fill in the entrance fee");
+            alert.showAndWait();
 
-        FairManager.updateEntranceFee(App.current_fair.getFairID(),entrance_fee_spinner.getValue());
-        //so that the current fair object is updated
-        App.current_fair.setEntrance_fee(entrance_fee_spinner.getValue());
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Success");
-        alert.setHeaderText("Success");
-        alert.setContentText("Entrance fee changed successfully");
-        alert.showAndWait();
-
+        } else {
+            FairManager.updateEntranceFee(App.current_fair.getFairID(), entrance_fee_spinner.getValue());
+            //so that the current fair object is updated
+            App.current_fair.setEntrance_fee(entrance_fee_spinner.getValue());
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Success");
+            alert.setHeaderText("Success");
+            alert.setContentText("Entrance fee changed successfully");
+            alert.showAndWait();
+        }
 
     }
 

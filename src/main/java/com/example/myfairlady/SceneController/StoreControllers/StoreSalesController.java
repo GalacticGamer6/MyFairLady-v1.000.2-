@@ -1,7 +1,9 @@
 package com.example.myfairlady.SceneController.StoreControllers;
 
 import com.example.myfairlady.App;
+import com.example.myfairlady.DataTypes.Fair;
 import com.example.myfairlady.DataTypes.Product;
+import com.example.myfairlady.DataTypes.Store;
 import com.example.myfairlady.Managers.ProductManager;
 import com.example.myfairlady.Managers.SaleManager;
 import com.example.myfairlady.Managers.StoreManager;
@@ -10,10 +12,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.io.IOException;
@@ -86,9 +85,27 @@ public class StoreSalesController implements Initializable {
     }
 
     public void rowSelected() throws SQLException {
+        //first we need to check if we have enough quantity of the product to sell
+        //if we dont have enough quantity, we need to tell the user that we dont have enough quantity
+        //if we do have enough quantity, we need to add the product to the sales table
+
         Product selected_product = products_to_sell_table.getSelectionModel().getSelectedItem();
 
-        sales_table.getItems().add(selected_product);
+        if(selected_product.getQuantity() > 0){
+
+            //add it to the other table
+            sales_table.getItems().add(selected_product);
+
+        }
+        else{
+            //we need to tell the user that we dont have enough quantity
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Not enough quantity");
+            alert.setContentText("There is not enough quantity of this product to sell");
+            alert.showAndWait();
+            ProductManager.deleteProduct(selected_product);
+        }
         initalizeSalesTable();
     }
 
@@ -97,8 +114,7 @@ public class StoreSalesController implements Initializable {
 
         product_id_column.setCellValueFactory(new PropertyValueFactory<>("ProductID"));
         product_name_column.setCellValueFactory(new PropertyValueFactory<>("ProductName"));
-        cost_price_column.setCellValueFactory(new PropertyValueFactory<>("CostPrice"));
-        System.out.println("We set cell value factories");
+        cost_price_column.setCellValueFactory(new PropertyValueFactory<>("SellingPrice"));
 
         sales_table.setItems(products);
         total_cost_label.setText(countTotalSellingPrice() + "");
@@ -139,6 +155,7 @@ public class StoreSalesController implements Initializable {
 
         //first sell each item in the table and add to the database
         for(int i = 0;i<sales_table.getItems().size();i++){
+
             Product p = sales_table.getItems().get(i);
             SaleManager.AddSale(p);
 
@@ -157,8 +174,10 @@ public class StoreSalesController implements Initializable {
 
     }
 
-    public void backButtonClicked() throws IOException {
-        ScreenGeneral.switchScreen(ScreenGeneral.StoreManagerMainScreenLocation);
+    public void LogoutButtonClicked() throws IOException {
+
+        ScreenGeneral.switchScreen(ScreenGeneral.LoginScreenLocation);
+
     }
 
 

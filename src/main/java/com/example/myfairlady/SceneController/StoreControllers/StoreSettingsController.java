@@ -157,4 +157,10 @@ public class StoreSettingsController implements Initializable {
 
 
     }
+
+    public void LogoutButtonClicked() throws IOException {
+
+        ScreenGeneral.switchScreen(ScreenGeneral.LoginScreenLocation);
+
+    }
 }

@@ -13,6 +13,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -93,7 +94,12 @@ public class LoginScreenController {
 
         }
         else{
-            System.out.println("User Not Authenticated");
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Invalid Credentials");
+            alert.setContentText("The username or password you entered is incorrect. Please try again.");
+            alert.showAndWait();
+
         }
 
     }

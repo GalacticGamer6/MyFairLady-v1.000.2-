@@ -117,7 +117,8 @@ public class UserManager {
 
     public static ResultSet getStoreOwnersWithoutAStore() throws SQLException {
 
-        String statement = "Select Username from  tblusers and tblstores where tblusers.UserID != tblstores.UserID AND AccountLevel = Store Owner;";
+        String statement = "Select Username from  tblusers,tblstores where tblusers.UserID != tblstores.OwnerID AND AccountLevel = Store Owner;";
+        System.out.println(statement);
         return Database.query(statement);
     }
 }

@@ -14,6 +14,7 @@ public class StoreManager {
     public static ResultSet getStores(String FairID) throws SQLException {
 
         String statement = "Select * from tblstores where FairID = '" + FairID + "'";
+        System.out.println(statement);
         return Database.query(statement);
     }
 
@@ -37,17 +38,23 @@ public class StoreManager {
     }
 
     public static void updateStoreProfit(Store s, Double profit) throws SQLException {
-        String statement = "UPDATE tblstores SET Profit = Profit" + (profit) + " WHERE StoreID = '" + s.getStoreID() + "'";
+        String statement = "UPDATE tblstores SET Profit = Profit  + " + (profit) + " WHERE StoreID = '" + s.getStoreID() + "'";
         Database.update(statement);
 
         //we then need to increase the fair profit
-        String statment = "UPDATE tblfairs SET TotalProfit = TotalProfit" + (profit) + " WHERE FairID = '" + s.getFairID() + "'";
+        String statment = "UPDATE tblfairs SET TotalProfit = TotalProfit + " + (profit) + " WHERE FairID = '" + s.getFairID() + "'";
     }
 
     public static String generateMotivationalquote() throws IOException {
 
         return ChatGPT.askChatBot("Generate a random motivational quote in the style of a successful business person giving advice to a novice store owner limit your response to 30 words or less");
 
+
+    }
+    public static ResultSet getStoreByID(String storeID) throws SQLException {
+
+        String statement = "Select * from tblstores where StoreID = '" + storeID + "'";
+        return Database.query(statement);
 
     }
 
@@ -85,13 +92,19 @@ public class StoreManager {
 
     }
 
-    public static void DeleteStore(String storeID){
+    public static void DeleteStore(Store s){
 
-
+        String statement = "DELETE FROM tblstores WHERE StoreID = '" + s.getStoreID() + "'";
 
 
     }
 
+    public static void addStore(String store_name, String ownerID, String fairID, String category, String status, Double profit) throws SQLException {
+
+        String statement = "INSERT INTO tblstores (StoreName, OwnerID, FairID, Category, Status, Profit) VALUES ('" + store_name + "','" + ownerID + "','" + fairID + "','" + category + "','" + status + "',0)";
+        Database.update(statement);
+
+    }
 
 
 
