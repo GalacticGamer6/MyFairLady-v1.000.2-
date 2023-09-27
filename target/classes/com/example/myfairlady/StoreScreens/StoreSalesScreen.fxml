@@ -4,36 +4,62 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #41436A;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.myfairlady.SceneController.StoreControllers.StoreSalesController">
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #984063;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.myfairlady.SceneController.StoreControllers.StoreSalesController">
    <children>
+      <Pane prefHeight="200.0" prefWidth="1287.0" style="-fx-background-color: #41436A;">
+         <children>
+            <Label layoutX="58.0" layoutY="55.0" prefHeight="87.0" prefWidth="384.0" text="Sales" textFill="#fe9677">
+               <font>
+                  <Font name="Century Gothic Bold" size="25.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="1077.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../Ferris%20Wheel%20256x.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
       <Pane prefHeight="720.0" prefWidth="0.0" style="-fx-background-color: white;" />
-      <TableView fx:id="products_to_sell_table" layoutX="50.0" layoutY="38.0" onMouseClicked="#rowSelected" prefHeight="477.0" prefWidth="296.0">
+      <TableView fx:id="products_to_sell_table" layoutX="24.0" layoutY="283.0" onMouseClicked="#rowSelected" prefHeight="367.0" prefWidth="296.0" style="-fx-background-radius: 20;">
         <columns>
-          <TableColumn fx:id="products_column" prefWidth="295.0" text="Products List" />
+          <TableColumn fx:id="products_column" prefWidth="295.0" style="-fx-background-radius: 20;" text="Products List" />
         </columns>
       </TableView>
-      <TableView fx:id="sales_table" layoutX="754.0" layoutY="44.0" onMouseClicked="#deleteRow" prefHeight="477.0" prefWidth="485.0">
+      <TableView fx:id="sales_table" layoutX="531.0" layoutY="228.0" onMouseClicked="#deleteRow" prefHeight="477.0" prefWidth="485.0" style="-fx-background-radius: 20;">
         <columns>
           <TableColumn fx:id="product_id_column" prefWidth="68.0" text="ProductID" />
           <TableColumn fx:id="product_name_column" prefWidth="303.0" text="Product Name" />
             <TableColumn fx:id="cost_price_column" prefWidth="113.0" text="Cost Price" />
         </columns>
       </TableView>
-      <Label layoutX="997.0" layoutY="546.0" prefHeight="31.0" prefWidth="89.0" text="Total :" textFill="WHITE">
+      <Label layoutX="1036.0" layoutY="598.0" prefHeight="31.0" prefWidth="89.0" text="Total :" textFill="WHITE">
          <font>
             <Font name="Century Gothic Bold" size="23.0" />
          </font>
       </Label>
-      <Label fx:id="total_cost_label" alignment="CENTER_RIGHT" layoutX="1075.0" layoutY="546.0" prefHeight="31.0" prefWidth="158.0" text="(Total Cost label)" textFill="WHITE">
+      <Label fx:id="total_cost_label" alignment="CENTER_RIGHT" layoutX="1114.0" layoutY="598.0" prefHeight="31.0" prefWidth="158.0" text="(Total Cost label)" textFill="WHITE">
          <font>
             <Font name="Century Gothic Bold" size="18.0" />
          </font>
       </Label>
-      <Button fx:id="sell_button" layoutX="1116.0" layoutY="616.0" mnemonicParsing="false" onAction="#sellButtonClicked" prefHeight="51.0" prefWidth="123.0" text="Sell " />
-      <Button layoutX="50.0" layoutY="629.0" mnemonicParsing="false" onAction="#backButtonClicked" prefHeight="31.0" prefWidth="169.0" text="Back" />
+      <Button fx:id="sell_button" layoutX="1046.0" layoutY="641.0" mnemonicParsing="false" onAction="#sellButtonClicked" prefHeight="51.0" prefWidth="216.0" stylesheets="@StoreStyles.css" text="Sell " />
+      <Button layoutX="43.0" layoutY="667.0" mnemonicParsing="false" onAction="#backButtonClicked" prefHeight="31.0" prefWidth="169.0" stylesheets="@StoreStyles.css" text="Back" />
+      <Label layoutX="24.0" layoutY="209.0" prefHeight="62.0" prefWidth="296.0" text="Click on the products you would like to add to your sale" textFill="#fe9677" wrapText="true">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="1062.0" layoutY="228.0" prefHeight="51.0" prefWidth="203.0" text="Click on the product to remove it from the transaction" textFill="#fe9677" wrapText="true">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

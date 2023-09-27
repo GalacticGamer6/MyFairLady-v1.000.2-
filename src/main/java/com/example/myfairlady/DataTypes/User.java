@@ -3,12 +3,12 @@ package com.example.myfairlady.DataTypes;
 public class User {
 
 
-    private int id;
+    private String id;
     private String username;
     private String password;
     private String authority_level;
 
-    public User(int id, String u, String p, String au){
+    public User(String id, String u, String p, String au){
 
         this.id = id;
         this.username = u;
@@ -18,7 +18,7 @@ public class User {
 
     }
 
-    public int getId(){
+    public String getId(){
         return this.id;
     }
 

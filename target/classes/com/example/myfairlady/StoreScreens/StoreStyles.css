@@ -6,12 +6,15 @@
 }
 
 .button{
-    -fx-font-size: 12px;
+    -fx-font-size: 8px;
+    -fx-background-radius: 20;
     -fx-background-color: #41436A;
     -fx-font-family: "Century Gothic";
     -fx-font-weight: bold;
-    -fx-text-fill: WHITE;
+    -fx-text-fill: #fe9677;
 }
 .button:hover{
     -fx-background-color: #fe9677;
+    -fx-background-radius: 20;
+    -fx-text-fill: WHITE;
 }

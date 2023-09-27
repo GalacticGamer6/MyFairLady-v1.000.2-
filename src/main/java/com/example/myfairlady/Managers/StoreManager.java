@@ -5,6 +5,7 @@ import com.example.myfairlady.UtilityClasses.ChatGPT;
 import com.example.myfairlady.UtilityClasses.Database;
 
 import java.io.IOException;
+import java.nio.channels.SelectableChannel;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -43,6 +44,47 @@ public class StoreManager {
     public static String generateMotivationalquote() throws IOException {
 
         return ChatGPT.askChatBot("Generate a random motivational quote in the style of a successful business person giving advice to a novice store owner limit your response to 30 words or less");
+
+
+    }
+
+    public static void updateStoreName(String storeID, String updated_name) throws SQLException {
+
+        String statement = "Update tblstores set StoreName = '" + updated_name + "' where StoreID = '" + storeID + "'";
+        Database.update(statement);
+
+    }
+
+    public static void changeFairs(String storeID,Fair new_fair) throws SQLException {
+
+        String statement = "Update tblstores set FairID = '" + new_fair.getFairID() + "' where StoreID = '" + storeID + "'";
+        Database.update(statement);
+    }
+
+    public static void updateStoreCategory(String storeID, String updated_category) throws SQLException {
+
+        String statement = "Update tblstores set category = '" + updated_category + "' where StoreID = '" + storeID + "'";
+        Database.update(statement);
+
+    }
+
+    public static ResultSet getStoreByName(String store_name) throws SQLException {
+
+        String statement = "Select * from tblstores where StoreName = '" + store_name + "'";
+        return Database.query(statement);
+
+    }
+
+    public static void ResetStoreProfit(String storeID) throws SQLException {
+
+        String statement = "Update tblstores set Profit = 0 where StoreID = '" + storeID + "'";
+        Database.update(statement);
+
+    }
+
+    public static void DeleteStore(int storeID){
+
+
 
 
     }

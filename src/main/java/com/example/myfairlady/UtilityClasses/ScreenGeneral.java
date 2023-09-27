@@ -19,6 +19,8 @@ import java.util.TimerTask;
 
 public class ScreenGeneral {
 
+    public static String LoginScreenLocation = "src/main/resources/com/example/myfairlady/LoginScreen.fxml";
+
     //String path for all the store related fxml files
     public static String StoreManagerMainScreenLocation = "src/main/resources/com/example/myfairlady/StoreScreens/StoreManagerMain.fxml";
     public static String StoreProductsListScreenLocation = "src/main/resources/com/example/myfairlady/StoreScreens/StoreProductListScreen.fxml";

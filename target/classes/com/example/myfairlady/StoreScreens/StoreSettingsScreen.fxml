@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.myfairlady.SceneController.StoreControllers.StoreSettingsController">
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.myfairlady.SceneController.StoreControllers.StoreSettingsController">
    <children>
       <Pane prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #984063;">
          <children>
@@ -63,15 +63,21 @@
                </font>
             </Label>
             <Separator layoutX="292.0" layoutY="211.0" orientation="VERTICAL" prefHeight="480.0" prefWidth="106.0" />
-            <TextField layoutX="574.0" layoutY="230.0" prefHeight="25.0" prefWidth="216.0" />
-            <Button fx:id="update_store_name_button" layoutX="692.0" layoutY="268.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="98.0" stylesheets="@StoreStyles.css" text="Update" />
-            <ComboBox fx:id="all_fairs_combo_box" layoutX="574.0" layoutY="348.0" prefHeight="25.0" prefWidth="216.0" />
+            <TextField fx:id="updated_store_name_text_field" layoutX="574.0" layoutY="230.0" prefHeight="25.0" prefWidth="216.0" />
+            <Button fx:id="update_store_name_button" layoutX="656.0" layoutY="275.0" mnemonicParsing="false" onAction="#changeStoreNameButtonClicked" prefHeight="32.0" prefWidth="134.0" style="-fx-background-color: #41436A;" text="Update" textFill="#fe9677">
+               <font>
+                  <Font name="Century Gothic Bold" size="15.0" />
+               </font></Button>
+            <ComboBox fx:id="list_of_fairs_combo_box" layoutX="574.0" layoutY="348.0" prefHeight="25.0" prefWidth="216.0" />
             <Label layoutX="398.0" layoutY="335.0" prefHeight="51.0" prefWidth="176.0" text="Change Fair" textFill="#fe9677">
                <font>
                   <Font name="Century Gothic Bold" size="16.0" />
                </font>
             </Label>
-            <Button fx:id="move_fair_button" layoutX="692.0" layoutY="386.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="98.0" stylesheets="@StoreStyles.css" text="Update" />
+            <Button fx:id="move_fair_button" layoutX="656.0" layoutY="386.0" mnemonicParsing="false" onAction="#moveFairButtonClicked" prefHeight="35.0" prefWidth="134.0" style="-fx-background-color: #41436A;" text="Update" textFill="#fe9677">
+               <font>
+                  <Font name="Century Gothic Bold" size="15.0" />
+               </font></Button>
             <Separator layoutX="819.0" layoutY="211.0" orientation="VERTICAL" prefHeight="480.0" prefWidth="106.0" />
             <Label layoutX="908.0" layoutY="217.0" prefHeight="51.0" prefWidth="176.0" text="DANGER ZONE:" textFill="#a81b19">
                <font>
@@ -88,14 +94,19 @@
                   <Font name="Century Gothic Bold" size="16.0" />
                </font>
             </Label>
-            <Button layoutX="1102.0" layoutY="291.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="118.0" text="RESET" />
-            <Button layoutX="1102.0" layoutY="361.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="118.0" text="COMMIT SUDOKU" />
+            <Button fx:id="reset_store_profit_button" layoutX="1102.0" layoutY="291.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="118.0" text="RESET" />
+            <Button fx:id="shut_down_store_button" layoutX="1102.0" layoutY="361.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="118.0" text="COMMIT SUDOKU" />
             <Label layoutX="398.0" layoutY="451.0" prefHeight="51.0" prefWidth="176.0" text="Switch category" textFill="#fe9677">
                <font>
                   <Font name="Century Gothic Bold" size="16.0" />
                </font>
             </Label>
             <ComboBox fx:id="categories_combo_box" layoutX="574.0" layoutY="464.0" prefHeight="25.0" prefWidth="216.0" />
+            <Button fx:id="switch_category_button" layoutX="656.0" layoutY="508.0" mnemonicParsing="false" onAction="#updateCategoriesButtonClicked" prefHeight="35.0" prefWidth="134.0" style="-fx-background-color: #41436A;" text="Update" textFill="#fe9677">
+               <font>
+                  <Font name="Century Gothic Bold" size="15.0" />
+               </font>
+            </Button>
          </children>
       </Pane>
    </children>

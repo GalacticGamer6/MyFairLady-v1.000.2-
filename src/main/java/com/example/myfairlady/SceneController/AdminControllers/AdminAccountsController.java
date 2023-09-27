@@ -1,5 +1,6 @@
 package com.example.myfairlady.SceneController.AdminControllers;
 
+import com.example.myfairlady.App;
 import com.example.myfairlady.DataTypes.User;
 import com.example.myfairlady.Managers.UserManager;
 import com.example.myfairlady.UtilityClasses.ScreenGeneral;
@@ -22,7 +23,8 @@ public class AdminAccountsController implements Initializable {
 
     @FXML
     private Label admin_clock_label;
-
+    @FXML
+    private Label admin_name_label;
     @FXML
     private Label date_label;
 
@@ -61,11 +63,9 @@ public class AdminAccountsController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
 
-
-
         try {
 
-
+            admin_name_label.setText(App.current_user.getUsername());
 
             ScreenGeneral.setDate(date_label);
             ScreenGeneral.Clock(admin_clock_label);
@@ -112,7 +112,7 @@ public class AdminAccountsController implements Initializable {
             String password = rs.getString("Password");
             String account_level = rs.getString("AccountLevel");
 
-            User u = new User(id,username,password,account_level);
+            User u = new User(id + "",username,password,account_level);
             users.add(u);
 
         }
@@ -162,5 +162,11 @@ public class AdminAccountsController implements Initializable {
     public void FairManagerButtonClicked() throws IOException {
         System.out.println("We are in the Method for fair manage rbutton clicked");
         ScreenGeneral.switchScreen(ScreenGeneral.AdminFairScreenLocation);
+    }
+
+    public void LogoutButtonClicked() throws IOException {
+
+        ScreenGeneral.switchScreen(ScreenGeneral.LoginScreenLocation);
+
     }
 }

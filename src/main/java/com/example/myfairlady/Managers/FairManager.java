@@ -1,18 +1,23 @@
 package com.example.myfairlady.Managers;
 
 import com.example.myfairlady.DataTypes.Fair;
+import com.example.myfairlady.DataTypes.Store;
+import com.example.myfairlady.UtilityClasses.ChatGPT;
 import com.example.myfairlady.UtilityClasses.Database;
 
+import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
+
+import static com.example.myfairlady.UtilityClasses.ChatGPT.askChatBot;
 
 public class FairManager {
 
     //adds a fair object to the database by taking in everything except the fair ID
     public static void addFair(String fair_name, String fair_owner_id, LocalDate start_date, LocalDate end_date, double entrance_fee, double fair_profit) throws SQLException {
-        String statement = "INSERT INTO tblfairs (fair_name, fair_owner, start_date, end_date, entrance_fee, fair_profit) VALUES ('" + fair_name + "', '" + fair_owner_id + "', '" + start_date + "', '" + end_date + "', '" + entrance_fee + "', '" + fair_profit + "');";
-        Database.query(statement);
+        String statement = "INSERT INTO tblfairs (FairName, FairOwnerID, StartDate, EndDate, EntranceFee, TotalProfit) VALUES ('" + fair_name + "', '" + fair_owner_id + "', '" + start_date + "', '" + end_date + "', '" + entrance_fee + "', '" + fair_profit + "');";
+        Database.update(statement);
     }
 
     public static void deleteFair(String fair_id) throws SQLException {
@@ -47,16 +52,41 @@ public class FairManager {
 
         //turn the restultset into a fair object
         rs.next();
-        String FairID = rs.getString("FairID");
+        int FairID = rs.getInt("FairID");
         String FairName = rs.getString("FairName");
         String FairOwnerID = rs.getString("FairOwnerID");
         LocalDate StartDate = rs.getDate("StartDate").toLocalDate();
         LocalDate EndDate = rs.getDate("EndDate").toLocalDate();
         double EntranceFee = rs.getDouble("EntranceFee");
-        double FairProfit = rs.getDouble("FairProfit");
+        double FairProfit = rs.getDouble("TotalProfit");
 
-        Fair F = new Fair(FairName,FairOwnerID,StartDate,EndDate,EntranceFee,FairProfit);
+        Fair F = new Fair(FairID + "",FairName,FairOwnerID,StartDate,EndDate,EntranceFee,FairProfit);
         return F;
+        }
+
+        public static ResultSet getFairByName(String fair_name) throws SQLException {
+            String statement = "Select * from tblfairs where FairName = '" + fair_name + "'";
+            return Database.query(statement);
+
+        }
+
+        public static void RemoveAStoresProfit(Store s){
+
+            String statement = "Update tblfairs set FairProfit = FairProfit - " + s.getProfit() + " where FairID = '" + s.getFairID() + "';";
+
+        }
+
+        public static String generateName(String themes) throws IOException {
+
+            String query = "Hey chabot, can you generate a name for a fair that revolves around the themes of " + themes + "?";
+            return(ChatGPT.askChatBot(query));
+
+        }
+
+        public static void increaseProfit(double increased_amount,String fair_id) throws SQLException {
+
+            String statement = "Update tblfairs set TotalProfit = TotalProfit + " + increased_amount + " where FairID = '" + fair_id + "';";
+            Database.update(statement);
         }
     }
 

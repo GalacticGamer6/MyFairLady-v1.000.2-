@@ -61,12 +61,14 @@ public class LoginScreenController {
 
             User U = UserManager.returnUser(username,password);
             App.current_user = U;
+            System.out.println("We have the user" + U.getId());
+
             //move to that screen
             switch(auth){
                 case "Store Owner":
                     System.out.println("Store Owner");
 
-                    Store s = StoreManager.ReturnStoreByOwnerID(String.valueOf(U.getId()));
+                    Store s = StoreManager.ReturnStoreByOwnerID(U.getId());
 
                     App.current_store = s;
 

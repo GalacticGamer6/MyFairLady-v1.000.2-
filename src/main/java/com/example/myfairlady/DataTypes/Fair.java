@@ -4,6 +4,7 @@ import java.time.LocalDate;
 
 public class Fair {
 
+    private String fair_id;
     private String fair_name;
     private String fair_owner_id;
     private LocalDate start_date;
@@ -12,7 +13,8 @@ public class Fair {
     private double fair_profit;
 
     //create a constructor for the fair class
-    public Fair(String fair_name, String fair_owner_id, LocalDate start_date, LocalDate end_date, double entrance_fee, double fair_profit) {
+    public Fair(String fair_id,String fair_name, String fair_owner_id, LocalDate start_date, LocalDate end_date, double entrance_fee, double fair_profit) {
+        this.fair_id = fair_id;
         this.fair_name = fair_name;
         this.fair_owner_id = fair_owner_id;
         this.start_date = start_date;
@@ -22,6 +24,9 @@ public class Fair {
     }
 
     //create getters for the fair class
+public String getFairID() {
+        return fair_id;
+    }
     public String getFairName() {
         return fair_name;
     }

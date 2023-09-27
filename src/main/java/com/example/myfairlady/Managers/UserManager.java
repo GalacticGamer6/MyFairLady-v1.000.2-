@@ -36,7 +36,7 @@ public class UserManager {
         String current_password = rs.getString("Password");
         String accountLevel = rs.getString("AccountLevel");
 
-        User u = new User(UserID,current_username,current_password,accountLevel);
+        User u = new User(UserID + "",current_username,current_password,accountLevel);
         return u;
 
     }
@@ -50,7 +50,7 @@ public class UserManager {
     }
 
     //kust use the userID primary key()
-    public static void deleteUser(int userID) throws SQLException {
+    public static void deleteUser(String userID) throws SQLException {
 
 
         String query = "Delete from tblusers where UserID = '" + userID + "';";
