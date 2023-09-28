@@ -130,19 +130,26 @@ public class StoreProductListController implements Initializable {
     }
 
     public void addProductButtonClicked() throws SQLException {
+        //check if all the values are entered
+        if(product_name_textfield.getText().isEmpty() || description_text_area.getText().isEmpty() || category_combo_box.getValue() == null){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Please fill in all the fields");
+            alert.showAndWait();
+        } else {
+            //get the values from the text fields and spinners
+            String product_name = product_name_textfield.getText();
+            double selling_price = selling_price_spinner.getValue();
+            double cost_price = cost_price_spinner.getValue();
+            String description = description_text_area.getText();
+            String category = category_combo_box.getValue();
+            int quantity = quantity_spinner.getValue();
+            String StoreID = App.current_store.getStoreID();
 
-        //get the values from the text fields and spinners
-        String product_name = product_name_textfield.getText();
-        double selling_price = selling_price_spinner.getValue();
-        double cost_price = cost_price_spinner.getValue();
-        String description = description_text_area.getText();
-        String category = category_combo_box.getValue();
-        int quantity = quantity_spinner.getValue();
-        String StoreID = App.current_store.getStoreID();
+            ProductManager.addProduct(product_name, StoreID, selling_price, cost_price, description, category, quantity);
 
-        ProductManager.addProduct(product_name,StoreID,selling_price,cost_price,description,category,quantity);
-
-        setProductsListTable();
+            setProductsListTable();
+        }
     }
 
     public void backButtonClicked() throws IOException {
