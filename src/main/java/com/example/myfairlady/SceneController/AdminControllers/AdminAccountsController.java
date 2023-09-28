@@ -132,6 +132,17 @@ public class AdminAccountsController implements Initializable {
 
 
     public void AddUserButtonClicked() throws SQLException {
+        //check if both fields are filled in
+        if(username_textfield.getText().isEmpty() || password_textfield.getText().isEmpty() || account_level_combo_box.getValue().isEmpty()){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Please fill in all fields");
+            alert.setContentText("Please fill in all fields");
+            alert.showAndWait();
+
+            return;
+        }
+
         String username = username_textfield.getText();
         String password = password_textfield.getText();
         String account_level = account_level_combo_box.getValue();

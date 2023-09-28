@@ -22,6 +22,7 @@ public class FairManager {
 
     public static void deleteFair(String fair_id) throws SQLException {
         String statement = "Delete from tblfairs where FairID = '" + fair_id + "';";
+        Database.update(statement);
     }
 
     //just gets all the fairs in the database

@@ -92,10 +92,10 @@ public class StoreManager {
 
     }
 
-    public static void DeleteStore(Store s){
+    public static void DeleteStore(Store s) throws SQLException {
 
         String statement = "DELETE FROM tblstores WHERE StoreID = '" + s.getStoreID() + "'";
-
+        Database.update(statement);
 
     }
 

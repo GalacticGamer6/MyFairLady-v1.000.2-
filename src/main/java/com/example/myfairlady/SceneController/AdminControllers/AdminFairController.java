@@ -184,18 +184,16 @@ public class AdminFairController implements Initializable {
     public void DeleteFair() throws SQLException {
 
         Fair f = tblfairs.getSelectionModel().getSelectedItem();
+
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Confirmation");
         alert.setHeaderText("Confirmation");
         alert.setContentText("Are you sure you want to delete this fair?");
         Optional<ButtonType> result = alert.showAndWait();
         if(result.get() == ButtonType.OK){
+            System.out.println("We said okay");
             FairManager.deleteFair(f.getFairID());
-            try {
-                initializeFairsTable();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+            initializeFairsTable();
         }
 
     }

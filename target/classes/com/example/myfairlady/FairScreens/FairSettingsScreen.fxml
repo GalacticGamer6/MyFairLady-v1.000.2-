@@ -103,5 +103,10 @@
       </Label>
       <Button layoutX="952.0" layoutY="185.0" mnemonicParsing="false" onAction="#changeFairName" prefHeight="25.0" prefWidth="100.0" text="Update" />
       <Button layoutX="961.0" layoutY="290.0" mnemonicParsing="false" onAction="#changeEntranceFee" prefHeight="25.0" prefWidth="100.0" text="Update" />
+      <Label layoutX="386.0" layoutY="384.0" prefHeight="185.0" prefWidth="281.0" text="DO NOT USE THIS HALF, WILL REVAMP BEFORE SHOWCASE" wrapText="true">
+         <font>
+            <Font name="Century Gothic Bold" size="24.0" />
+         </font>
+      </Label>
     </children>
 </AnchorPane>
