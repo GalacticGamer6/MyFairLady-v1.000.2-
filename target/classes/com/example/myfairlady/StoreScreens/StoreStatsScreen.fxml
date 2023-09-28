@@ -39,7 +39,7 @@
             <Font name="Century Gothic Bold" size="25.0" />
          </font>
       </Label>
-      <Button layoutX="30.0" layoutY="621.0" mnemonicParsing="false" onAction="#LogoutButtonClicked" prefHeight="70.0" prefWidth="70.0" stylesheets="@../styles.css">
+      <Button layoutX="30.0" layoutY="621.0" mnemonicParsing="false" onAction="#backButtonClicked" prefHeight="70.0" prefWidth="70.0" stylesheets="@../styles.css">
          <graphic>
             <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                <image>

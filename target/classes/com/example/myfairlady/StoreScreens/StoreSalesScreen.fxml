@@ -50,7 +50,7 @@
          </font>
       </Label>
       <Button fx:id="sell_button" layoutX="1046.0" layoutY="641.0" mnemonicParsing="false" onAction="#sellButtonClicked" prefHeight="51.0" prefWidth="216.0" stylesheets="@StoreStyles.css" text="Sell " />
-      <Button layoutX="43.0" layoutY="667.0" mnemonicParsing="false" onAction="#backButtonClicked" prefHeight="31.0" prefWidth="169.0" stylesheets="@StoreStyles.css" text="Back" />
+      <Button layoutX="43.0" layoutY="667.0" mnemonicParsing="false" onAction="#BackButtonClicked" prefHeight="31.0" prefWidth="169.0" stylesheets="@StoreStyles.css" text="Back" />
       <Label layoutX="24.0" layoutY="209.0" prefHeight="62.0" prefWidth="296.0" text="Click on the products you would like to add to your sale" textFill="#fe9677" wrapText="true">
          <font>
             <Font name="System Bold" size="12.0" />

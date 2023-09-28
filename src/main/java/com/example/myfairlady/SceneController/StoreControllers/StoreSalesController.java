@@ -64,24 +64,28 @@ public class StoreSalesController implements Initializable {
         products_column.setCellValueFactory(new PropertyValueFactory<>("ProductName"));
 
         ResultSet rs = ProductManager.getProductsByStore(App.current_store.getStoreID());
+        if(rs.next()) {
+            ObservableList<Product> products = FXCollections.observableArrayList();
+            while (rs.next()) {
+                String product_id = rs.getString("ProductID");
+                String product_name = rs.getString("ProductName");
+                String store_id = rs.getString("StoreID");
+                Double selling_price = rs.getDouble("SellingPrice");
+                Double cost_price = rs.getDouble("CostPrice");
+                String description = rs.getString("Description");
+                String category = rs.getString("Category");
+                int quantity = rs.getInt("Quantity");
 
-        ObservableList<Product> products = FXCollections.observableArrayList();
-        while(rs.next()){
-            String product_id = rs.getString("ProductID");
-            String product_name = rs.getString("ProductName");
-            String store_id = rs.getString("StoreID");
-            Double selling_price = rs.getDouble("SellingPrice");
-            Double cost_price = rs.getDouble("CostPrice");
-            String description = rs.getString("Description");
-            String category = rs.getString("Category");
-            int quantity = rs.getInt("Quantity");
+                Product P = new Product(product_id, product_name, store_id, selling_price, cost_price, description, category, quantity);
+                products.add(P);
+            }
 
-            Product P = new Product(product_id,product_name,store_id,selling_price,cost_price,description,category,quantity);
-            products.add(P);
+            products_to_sell_table.setItems(products);
         }
+        else{
 
-        products_to_sell_table.setItems(products);
-
+            return;
+        }
     }
 
     public void rowSelected() throws SQLException {
@@ -174,9 +178,9 @@ public class StoreSalesController implements Initializable {
 
     }
 
-    public void LogoutButtonClicked() throws IOException {
+    public void BackButtonClicked() throws IOException {
 
-        ScreenGeneral.switchScreen(ScreenGeneral.LoginScreenLocation);
+        ScreenGeneral.switchScreen(ScreenGeneral.StoreManagerMainScreenLocation);
 
     }
 

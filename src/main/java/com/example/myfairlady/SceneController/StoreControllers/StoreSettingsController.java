@@ -121,9 +121,7 @@ public class StoreSettingsController implements Initializable {
         }
 
     }
-    public void backButtonClicked() throws IOException {
-        ScreenGeneral.switchScreen(ScreenGeneral.StoreManagerMainScreenLocation);
-    }
+
     public void changeStoreNameButtonClicked() throws IOException, SQLException {
         //check whether the text field is empty
         if(updated_store_name_text_field.getText().isEmpty()){
@@ -158,9 +156,9 @@ public class StoreSettingsController implements Initializable {
 
     }
 
-    public void LogoutButtonClicked() throws IOException {
+    public void backButtonClicked() throws IOException {
 
-        ScreenGeneral.switchScreen(ScreenGeneral.LoginScreenLocation);
+        ScreenGeneral.switchScreen(ScreenGeneral.StoreManagerMainScreenLocation);
 
     }
 }

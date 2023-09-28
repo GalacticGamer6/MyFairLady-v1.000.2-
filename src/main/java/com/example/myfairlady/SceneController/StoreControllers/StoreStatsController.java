@@ -60,28 +60,42 @@ public class StoreStatsController implements Initializable {
 
             //settings the important info fields
             ResultSet rs = StoreManager.getStoreByID(App.current_store.getStoreID());
-            rs.next();
-            store_profit_field.setText(rs.getString("Profit"));
+            if(rs.next()) {
+//                rs.next();
+                store_profit_field.setText(rs.getString("Profit"));
+            }
+            else{
+                return;
+            }
 
             //get most popular date
             ResultSet rs2 = SaleManager.getDateOfMostSalesByStore(App.current_store.getStoreID());
-            rs2.next();
-            LocalDate most_popular_date = rs2.getDate("DateSold").toLocalDate();
-            most_popular_date_text_field.setText(most_popular_date.toString());
-
+            if(rs2.next()) {
+//                rs2.next();
+                LocalDate most_popular_date = rs2.getDate("DateSold").toLocalDate();
+                most_popular_date_text_field.setText(most_popular_date.toString());
+            }
+            else{
+                return;
+            }
             //get most popular product
             ResultSet rs3 = SaleManager.getMostPopularProductOfAStore(App.current_store.getStoreID());
-            rs3.next();
-            String most_popular_product = rs3.getString("ProductName");
-            most_popular_product_text_field.setText(most_popular_product);
+            if(rs3.next()) {
+//                rs3.next();
+                String most_popular_product = rs3.getString("ProductName");
+                most_popular_product_text_field.setText(most_popular_product);
+            }
+            else{
+                return;
+            }
 
             //get number of sales
             ResultSet rs4 = SaleManager.getNumberOfSalesOfAStore(App.current_store.getStoreID());
-            rs4.next();
-            int num_sales = rs4.getInt("COUNT(*)");
-            System.out.println(num_sales);
-            num_sales_text_field.setText(Integer.toString(num_sales));
-
+            if(rs4.next()) {
+//                rs4.next();
+                int num_sales = rs4.getInt("COUNT(*)");
+                num_sales_text_field.setText(Integer.toString(num_sales));
+            }
 
 
         } catch (SQLException e) {
@@ -95,25 +109,30 @@ public class StoreStatsController implements Initializable {
         date_column.setCellValueFactory(new PropertyValueFactory<>("Date"));
 
         ResultSet rs = SaleManager.getSalesByStore(App.current_store.getStoreID());
-        ObservableList sales = FXCollections.observableArrayList();
+        if(rs.next()) {
+            ObservableList sales = FXCollections.observableArrayList();
 
-        while (rs.next()) {
+            while (rs.next()) {
 
-        String SaleID = rs.getString("SaleID");
-        String ProductID = rs.getString("ProductID");
-        LocalDate Date = rs.getDate("DateSold").toLocalDate();
+                String SaleID = rs.getString("SaleID");
+                String ProductID = rs.getString("ProductID");
+                LocalDate Date = rs.getDate("DateSold").toLocalDate();
 
-        Sale s = new Sale(SaleID, ProductID, Date);
-        sales.add(s);
+                Sale s = new Sale(SaleID, ProductID, Date);
+                sales.add(s);
 
+            }
+
+            sales_table.setItems(sales);
         }
-
-        sales_table.setItems(sales);
+        else{
+            return;
+        }
     }
 
-    public void LogoutButtonClicked() throws IOException {
+    public void backButtonClicked() throws IOException {
 
-        ScreenGeneral.switchScreen(ScreenGeneral.LoginScreenLocation);
+        ScreenGeneral.switchScreen(ScreenGeneral.StoreManagerMainScreenLocation);
 
     }
     //we use this everytime an item in the table is selected
